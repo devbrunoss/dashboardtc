@@ -945,14 +945,25 @@
 
 <body>
   <header class="app-header">
-    <div class="logo">
-      <span class="logo-track">Track</span>
-      <span class="logo-crypto">Cripto</span>
-    </div class="header-controls">
-    <button id="themeToggle" class="theme-btn compact">
-      <i class="fas fa-moon"></i>
-      <span id="theme-text">Modo Escuro</span>
-    </button>
+  <div class="logo">
+    <span class="logo-track">Track</span>
+    <span class="logo-crypto">Cripto</span>
+  </div>
+  
+  <nav class="main-nav">
+    <ul>
+      <li><a href="#crypto-data"><i class="fas fa-chart-line"></i></a></li>
+      <li><a href="#portfolio"><i class="fas fa-wallet"></i></a></li>
+      <li><a href="#educativa"><i class="fas fa-graduation-cap"></i></a></li>
+      <li><a href="#news"><i class="fas fa-newspaper"></i></a></li>
+      <li><a href="#feedback"><i class="fas fa-envelope"></i></a></li>
+    </ul>
+  </nav>
+  
+  <button id="themeToggle" class="theme-btn">
+    <i class="fas fa-moon"></i>
+  </button>
+</header>
 
     <script>
       // Toggle Tema Claro/Escuro
@@ -980,6 +991,52 @@
     </script>
 
     <style>
+/* Novo menu de navegação */
+.main-nav ul {
+  display: flex;
+  gap: 15px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav a {
+  color: var(--text);
+  font-size: 1.2rem;
+  opacity: 0.7;
+  transition: all 0.3s;
+  padding: 5px;
+}
+
+.main-nav a:hover {
+  opacity: 1;
+  color: var(--primary);
+}
+
+/* Ajuste do cabeçalho */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  position: relative;
+}
+
+/* Botão de tema simplificado */
+.theme-btn {
+  background: none;
+  border: none;
+  color: var(--text);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.theme-btn:hover {
+  background: rgba(0, 255, 136, 0.1);
+}
+
       /* Container dos controles - LADO A LADO */
       .header-controls {
         display: flex;
@@ -1220,56 +1277,7 @@
   </header>
 
   <main>
-    <!-- Navigation Menu -->
-    <nav class="mobile-nav">
-      <!-- Linha 1 -->
-      <div class="nav-row">
-        <a href="#crypto-data" class="nav-item active">
-          <i class="fas fa-coins"></i>
-          <span>Cotações</span>
-        </a>
-        <a href="#educativa" class="nav-item">
-          <i class="fas fa-graduation-cap"></i>
-          <span>Educação</span>
-        </a>
-        <a href="#news" class="nav-item">
-          <i class="fas fa-newspaper"></i>
-          <span>Notícias</span>
-        </a>
-      </div>
-
-      <!-- Linha 2 -->
-      <div class="nav-row">
-        <a href="#portfolio" class="nav-item">
-          <i class="fas fa-chart-pie"></i>
-          <span>Portfólio</span>
-        </a>
-        <a href="#pump-simulator" class="nav-item">
-          <i class="fas fa-bolt"></i>
-          <span>Pump/Dump</span>
-        </a>
-        <a href="#plataformas" class="nav-item">
-          <i class="fas fa-link"></i>
-          <span>Plataformas</span>
-        </a>
-      </div>
-
-      <!-- Linha 3 (Agora com Calculadora de Risco) -->
-      <div class="nav-row">
-        <a href="#liquidations-map" class="nav-item">
-          <i class="fas fa-water"></i>
-          <span>Liquidações</span>
-        </a>
-        <a href="#alertas-preco" class="nav-item">
-          <i class="fas fa-bell"></i>
-          <span>Alertas</span>
-        </a>
-        <a href="#risk-calculator" class="nav-item">
-          <i class="fas fa-calculator"></i>
-          <span>Risco</span>
-        </a>
-      </div>
-    </nav>
+    
 
     <style>
       /* Reset para evitar bugs */
@@ -1808,15 +1816,78 @@
   </main>
 
   <footer>
+  <div class="footer-content">
+    <div class="footer-section">
+      <h4>TrackCripto</h4>
+      <p>Sua ferramenta completa para análise de criptomoedas</p>
+    </div>
+    <div class="footer-section">
+      <h4>Links</h4>
+      <ul>
+        <li><a href="#termos">Termos de Uso</a></li>
+        <li><a href="#privacidade">Política de Privacidade</a></li>
+        <li><a href="#feedback">Contato</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h4>Apoie o projeto</h4>
+      <p>Chave PIX: trackcripto@gmail.com</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
     <p>&copy; 2025 TrackCripto. Todos os direitos reservados.</p>
-    <p>
-      <a href="#termos" style="color: var(--primary);">Termos de Uso</a> |
-      <a href="#privacidade" style="color: var(--primary);">Política de Privacidade</a> |
-      <!-- LINK ADICIONADO (no rodapé) -->
-      <span style="color: var(--text-muted);">Parceiros:</span>
-      <a href="https://www.kucoin.com/?ref=CX8Q433Y" target="_blank" style="color: var(--primary);">KuCoin</a>
-    </p>
-  </footer>
+  </div>
+</footer>
+
+<style>
+footer {
+  background: var(--card);
+  padding: 30px 0 15px;
+  margin-top: 40px;
+  border-top: 1px solid rgba(0, 255, 136, 0.1);
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto 20px;
+  padding: 0 20px;
+}
+
+.footer-section h4 {
+  color: var(--primary);
+  margin-bottom: 15px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section li {
+  margin-bottom: 8px;
+}
+
+.footer-section a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-section a:hover {
+  color: var(--primary);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 15px;
+  border-top: 1px solid rgba(0, 255, 136, 0.1);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+</style>
 
   <!-- Chat IA -->
   <div id="aiChatContainer">
@@ -2793,6 +2864,38 @@
         }
       }
 
+      // Substitua a função setupThemeToggle por esta:
+function setupThemeToggle() {
+  const themeToggle = document.getElementById('themeToggle');
+  const icon = themeToggle.querySelector('i');
+
+  // Verifica o tema salvo ou preferência do sistema
+  const savedTheme = localStorage.getItem('theme');
+  const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+  const initialTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+  document.documentElement.setAttribute('data-theme', initialTheme);
+  updateToggleIcon(initialTheme);
+
+  // Alterna entre temas
+  themeToggle.addEventListener('click', () => {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    updateToggleIcon(newTheme);
+  });
+
+  function updateToggleIcon(theme) {
+    if (theme === 'dark') {
+      icon.className = 'fas fa-sun';
+    } else {
+      icon.className = 'fas fa-moon';
+    }
+  }
+}
+
       // 17. INICIALIZAÇÃO COMPLETA
       async function initApp() {
         setupThemeToggle();
@@ -2872,84 +2975,6 @@
 
 
   </script>
-
-  <!-- Notificações Falsas -->
-  <div id="fake-notifications" class="notification-container"></div>
-
-  <style>
-    .notification-container {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      z-index: 9999;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .notification {
-      background: rgba(0, 0, 0, 0.85);
-      color: #00ffae;
-      border: 1px solid #00ffae;
-      border-left: 5px solid #00ffae;
-      padding: 12px 16px;
-      border-radius: 8px;
-      font-size: 14px;
-      font-family: 'Segoe UI', sans-serif;
-      box-shadow: 0 0 10px #00ffae88;
-      animation: slideIn 0.5s ease forwards;
-      opacity: 0;
-    }
-
-    @keyframes slideIn {
-      from {
-        transform: translateX(-20px);
-        opacity: 0;
-      }
-
-      to {
-        transform: translateX(0);
-        opacity: 1;
-      }
-    }
-  </style>
-
-  <script>
-    const messages = [
-      "💬 Usuário de SP acabou de usar a Calculadora de Risco.",
-      "📈 Nova consulta feita no Índice Fear & Greed.",
-      "🧠 Alguém acabou de acessar Educação Cripto.",
-      "⚡ +120 usuários já estão usando!",
-      "📊 Nova análise feita no comparador de Criptos.",
-      "👨‍💻 Usuário do RJ entrou no Portfólio."
-    ];
-
-    function showNotification(msg) {
-      const container = document.getElementById("fake-notifications");
-      const div = document.createElement("div");
-      div.className = "notification";
-      div.innerText = msg;
-
-      container.appendChild(div);
-
-      setTimeout(() => {
-        div.style.opacity = "0";
-        div.style.transition = "opacity 0.5s ease";
-        setTimeout(() => container.removeChild(div), 500);
-      }, 5000); // dura 5s
-    }
-
-    function loopNotifications() {
-      setInterval(() => {
-        const randomMsg = messages[Math.floor(Math.random() * messages.length)];
-        showNotification(randomMsg);
-      }, 8000); // a cada 8s
-    }
-
-    document.addEventListener("DOMContentLoaded", loopNotifications);
-  </script>
-
-
 
 </body>
 
