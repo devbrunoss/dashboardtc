@@ -5,10 +5,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Open Graph atualizado -->
-  <meta property="og:title" content="TrackCripto • Ferramentas Cripto">
+     <title>TrackCripto - Dashboard Profissional para Criptomoedas</title>
+  <meta property="og:title" content="TrackCripto - Dashboard Profissional para Criptomoedas">
   <meta property="og:description"
     content="Acompanhe os preços, tendências e índices das principais criptomoedas em tempo real. Descubra métricas exclusivas e monitore seu portfólio com facilidade!">
-  <meta property="og:image" content="https://trackcripto.netlify.app/assets/shhare-trackcrripto.png">
+  <meta property="og:image" content="https://trackcripto.netlify.app/assets/c:\Users\PC\landingpageTC\img\foto1.png">
   <meta property="og:url" content="https://trackcripto.netlify.app">
   <meta property="og:type" content="website">
   <meta property="og:image:width" content="1200">
@@ -55,6 +56,11 @@
   </script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+
+<!-- Favicon -->
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%2239ff14%22>T</text></svg>">
+</head>
 
   <style>
     :root {
@@ -842,6 +848,7 @@
       transition: background 0.3s;
     }
 
+
     .theme-btn i {
       margin-right: 6px;
     }
@@ -941,30 +948,16 @@
 
 <body>
   <header class="app-header">
-    <div class="logo-container">
-      <div class="logo">
-        <span class="logo-track">Track</span>
-        <span class="logo-crypto">Cripto</span>
-      </div>
-
-      <button class="hamburger-btn" aria-label="Menu">
-        <div class="hamburger-icon"></div>
-      </button>
+    <div class="logo">
+      <span class="logo-track">Track</span>
+      <span class="logo-crypto">Cripto</span>
     </div>
 
-    <nav class="main-nav">
-      <ul class="nav-list">
-        <li><a href="#crypto-data"><i class="fas fa-chart-line"></i> Painel</a></li>
-        <li><a href="#portfolio"><i class="fas fa-wallet"></i> Portfólio</a></li>
-        <li><a href="#educativa"><i class="fas fa-graduation-cap"></i> Educação</a></li>
-        <li><a href="#news"><i class="fas fa-newspaper"></i> Notícias</a></li>
-        <li><a href="#feedback"><i class="fas fa-envelope"></i> Contato</a></li>
-      </ul>
-
+    <div class="header-right">
       <button id="themeToggle" class="theme-btn" aria-label="Alternar tema">
         <i class="fas fa-moon"></i>
       </button>
-    </nav>
+    
   </header>
 
   <script>
@@ -991,443 +984,73 @@
       document.body.classList.toggle('trader-mode', isAdvanced);
     });
 
-    document.addEventListener('DOMContentLoaded', function () {
-      // Menu mobile
-      const menuToggle = document.querySelector('.menu-toggle');
-      const mainNav = document.querySelector('.main-nav');
-
-      menuToggle.addEventListener('click', function () {
-        mainNav.classList.toggle('active');
-        const icon = this.querySelector('i');
-        if (mainNav.classList.contains('active')) {
-          icon.className = 'fas fa-times';
-        } else {
-          icon.className = 'fas fa-bars';
-        }
-      });
-
-      // Fechar menu ao clicar em um link (mobile)
-      const navLinks = document.querySelectorAll('.main-nav a');
-      navLinks.forEach(link => {
-        link.addEventListener('click', function () {
-          if (window.innerWidth <= 768) {
-            mainNav.classList.remove('active');
-            menuToggle.querySelector('i').className = 'fas fa-bars';
-          }
-        });
-      });
-    });
-
-    function setupThemeToggle() {
-      const themeToggle = document.getElementById('themeToggle');
-      const icon = themeToggle.querySelector('i');
-
-      // Verifica o tema salvo ou preferência do sistema
-      const savedTheme = localStorage.getItem('theme');
-      const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-      const initialTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
-      document.documentElement.setAttribute('data-theme', initialTheme);
-      updateToggleIcon(initialTheme);
-
-      // Alterna entre temas
-      themeToggle.addEventListener('click', () => {
-        const currentTheme = document.documentElement.getAttribute('data-theme');
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-
-        document.documentElement.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-        updateToggleIcon(newTheme);
-      });
-
-      function updateToggleIcon(theme) {
-        icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
-        icon.setAttribute('title', theme === 'dark' ? 'Modo claro' : 'Modo escuro');
-      }
-    }
-
-    document.addEventListener('DOMContentLoaded', function() {
-  // Menu Hamburguer
-  const hamburgerBtn = document.querySelector('.hamburger-btn');
-  const mainNav = document.querySelector('.main-nav');
-  
-  hamburgerBtn.addEventListener('click', function() {
-    this.classList.toggle('active');
-    mainNav.classList.toggle('active');
-    
-    // Bloquear scroll quando menu está aberto
-    if (mainNav.classList.contains('active')) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-  });
-  
-  // Fechar menu ao clicar em um link (mobile)
-  const navLinks = document.querySelectorAll('.nav-list a');
-  navLinks.forEach(link => {
-    link.addEventListener('click', function() {
-      if (window.innerWidth <= 768) {
-        hamburgerBtn.classList.remove('active');
-        mainNav.classList.remove('active');
-        document.body.style.overflow = '';
-      }
-    });
-  });
-  
-  // Fechar menu ao redimensionar para desktop
-  window.addEventListener('resize', function() {
-    if (window.innerWidth > 768) {
-      hamburgerBtn.classList.remove('active');
-      mainNav.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-  });
-});
   </script>
 
   <style>
     /* Cabeçalho */
-    .app-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem;
-      background: var(--bg);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      border-bottom: 1px solid rgba(0, 255, 136, 0.1);
-    }
-
-    .logo-container {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    /* Menu Hambúrguer - Mobile */
-    .hamburger-btn {
+    /* Menu Hambúrguer */
+    .menu-toggle {
       display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 28px;
+      height: 20px;
       background: none;
       border: none;
       cursor: pointer;
-      padding: 0.5rem;
-      z-index: 1001;
     }
 
-    .hamburger-icon {
-      width: 25px;
-      height: 2px;
-      background: var(--primary);
-      position: relative;
-      transition: all 0.3s;
+    .menu-bar {
+      width: 100%;
+      height: 3px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: all 0.3s ease;
     }
 
-    .hamburger-icon::before,
-    .hamburger-icon::after {
-      content: '';
-      position: absolute;
-      width: 25px;
-      height: 2px;
-      background: var(--primary);
-      transition: all 0.3s;
+    /* Animação ao abrir */
+    .menu-toggle.active .menu-bar:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
     }
 
-    .hamburger-icon::before {
-      transform: translateY(-8px);
+    .menu-toggle.active .menu-bar:nth-child(2) {
+      opacity: 0;
     }
 
-    .hamburger-icon::after {
-      transform: translateY(8px);
+    .menu-toggle.active .menu-bar:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
     }
 
-    /* Navegação */
-    .main-nav {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .nav-list {
-      display: flex;
-      gap: 1rem;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    .nav-list a {
-      color: var(--text);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
-      transition: all 0.3s;
-    }
-
-    .nav-list a:hover {
-      background: rgba(0, 255, 136, 0.1);
-    }
-
-    /* Botão de tema */
-    .theme-btn {
-      background: none;
-      border: none;
-      color: var(--text);
-      font-size: 1.2rem;
-      cursor: pointer;
-      padding: 0.5rem;
-      border-radius: 50%;
-      transition: all 0.3s;
-    }
-
-    .theme-btn:hover {
-      background: rgba(0, 255, 136, 0.1);
-    }
-
-    /* Responsivo */
+    /* Mostrar só em telas pequenas */
     @media (max-width: 768px) {
-      .hamburger-btn {
-        display: block;
+      .menu-toggle {
+        display: flex;
       }
 
       .main-nav {
         position: fixed;
         top: 0;
-        right: -100%;
+        left: -100%;
         width: 70%;
         height: 100vh;
         background: var(--card);
+        display: flex;
         flex-direction: column;
         justify-content: center;
-        padding: 2rem;
-        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-        transition: right 0.3s ease;
-      }
-
-      .main-nav.active {
-        right: 0;
-      }
-
-      .nav-list {
-        flex-direction: column;
-        width: 100%;
-      }
-
-      .nav-list li {
-        width: 100%;
-      }
-
-      .nav-list a {
-        padding: 1rem;
-        border-radius: 5px;
-      }
-
-      .hamburger-btn.active .hamburger-icon {
-        background: transparent;
-      }
-
-      .hamburger-btn.active .hamburger-icon::before {
-        transform: rotate(45deg);
-      }
-
-      .hamburger-btn.active .hamburger-icon::after {
-        transform: rotate(-45deg);
-      }
-    }
-
-    /* Cabeçalho */
-    .app-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 20px;
-      background: var(--bg);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      border-bottom: 1px solid rgba(0, 255, 136, 0.1);
-    }
-
-    .header-right {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-
-    /* Navegação principal */
-    .main-nav ul {
-      display: flex;
-      gap: 15px;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    .main-nav a {
-      color: var(--text);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      padding: 8px 12px;
-      border-radius: 8px;
-      transition: all 0.3s;
-      opacity: 0.8;
-    }
-
-    .main-nav a:hover,
-    .main-nav a:focus {
-      background: rgba(0, 255, 136, 0.1);
-      opacity: 1;
-    }
-
-    .main-nav a i {
-      font-size: 1.1rem;
-    }
-
-    .main-nav a span {
-      font-size: 0.95rem;
-    }
-
-    /* Botão de tema */
-    .theme-btn {
-      background: none;
-      border: none;
-      color: var(--text);
-      font-size: 1.3rem;
-      cursor: pointer;
-      padding: 8px;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.3s;
-    }
-
-    .theme-btn:hover {
-      background: rgba(0, 255, 136, 0.1);
-    }
-
-    /* Menu hamburguer (mobile) */
-    .menu-toggle {
-      display: none;
-      background: none;
-      border: none;
-      color: var(--text);
-      font-size: 1.3rem;
-      cursor: pointer;
-      padding: 8px;
-    }
-
-    /* Responsivo */
-    @media (max-width: 768px) {
-      .main-nav {
-        position: fixed;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        background: var(--card);
-        padding: 20px;
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-        transform: translateY(-150%);
-        transition: transform 0.3s ease;
+        align-items: center;
+        transition: left 0.3s ease;
         z-index: 999;
       }
 
       .main-nav.active {
-        transform: translateY(0);
-      }
-
-      .main-nav ul {
-        flex-direction: column;
-        gap: 10px;
-      }
-
-      .main-nav a {
-        padding: 12px 15px;
-      }
-
-      .menu-toggle {
-        display: block;
+        left: 0;
       }
     }
 
-    /* Novo menu de navegação */
-    .main-nav ul {
-      display: flex;
-      gap: 15px;
-      list-style: none;
-      margin: 0;
-      padding: 0;
+    a[href*="binance.com"] {
+      text-decoration: none !important;
     }
 
-    .main-nav a {
-      color: var(--text);
-      font-size: 1.2rem;
-      opacity: 0.7;
-      transition: all 0.3s;
-      padding: 5px;
-    }
-
-    .main-nav a:hover {
-      opacity: 1;
-      color: var(--primary);
-    }
-
-    /* Ajuste do cabeçalho */
-    .app-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 0;
-      position: relative;
-    }
-
-    /* Botão de tema simplificado */
-    .theme-btn {
-      background: none;
-      border: none;
-      color: var(--text);
-      font-size: 1.2rem;
-      cursor: pointer;
-      padding: 5px 10px;
-      border-radius: 5px;
-    }
-
-    .theme-btn:hover {
-      background: rgba(0, 255, 136, 0.1);
-    }
-
-    /* Container dos controles - LADO A LADO */
-    .header-controls {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      /* Espaço entre os elementos */
-    }
-
-    /* Versão compacta dos componentes */
-    .theme-btn.compact {
-      padding: 6px 12px;
-      font-size: 0.9rem;
-    }
-
-    .mode-box.compact {
-      padding: 6px 12px;
-      font-size: 0.9rem;
-    }
-
-    /* Ajuste fino do switch */
-    .switch {
-      margin: 0 5px;
-      /* Espaço entre o texto e o switch */
-    }
 
     /* Layout do Header */
     .app-header {
@@ -1520,6 +1143,12 @@
       background: white;
       transition: .4s;
       border-radius: 50%;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 15px;
     }
 
     input:checked+.slider {
@@ -1646,6 +1275,9 @@
 
 
     <style>
+
+      
+
       /* Reset para evitar bugs */
       .mobile-nav {
         box-sizing: border-box;
@@ -2224,6 +1856,60 @@
       color: var(--text-muted);
       font-size: 0.9rem;
     }
+
+    /* === NAV MOBILE BONITA === */
+@media (max-width: 768px) {
+  .app-header nav.main-nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: min(78vw, 320px);
+    background: var(--card);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 80px 20px 20px; /* espaço pro topo */
+    transform: translateX(100%);
+    transition: transform .3s ease;
+    z-index: 2000; /* fica acima do conteúdo */
+    box-shadow: -6px 0 20px rgba(0,0,0,.4);
+  }
+
+  .app-header nav.main-nav.active {
+    transform: translateX(0);
+  }
+
+  /* remove as bolinhas */
+  .app-header nav.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  /* links bonitos */
+  .app-header nav.main-nav a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: var(--text);
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: background .3s, color .3s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /* hover */
+  .app-header nav.main-nav a:hover {
+    background: var(--primary);
+    color: #fff;
+  }
+}
+
   </style>
 
   <!-- Chat IA -->
@@ -3264,6 +2950,7 @@
 
         console.log("TrackCripto totalmente carregado!");
       }
+      
 
       // Inicia o aplicativo
       initApp();
@@ -3308,6 +2995,27 @@
         behavior: 'smooth'
       });
     });
+
+     document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mainNav    = document.querySelector('.main-nav');
+
+    if (!menuToggle || !mainNav) return;
+
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      mainNav.classList.toggle('active');
+      document.body.style.overflow = mainNav.classList.contains('active') ? 'hidden' : '';
+    });
+
+    document.querySelectorAll('.main-nav a').forEach(a => {
+      a.addEventListener('click', () => {
+        menuToggle.classList.remove('active');
+        mainNav.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+  });
   </script>
 
 
