@@ -9,7 +9,7 @@
   <meta property="og:title" content="TrackCripto - Dashboard Profissional para Criptomoedas">
   <meta property="og:description"
     content="Acompanhe os preços, tendências e índices das principais criptomoedas em tempo real. Descubra métricas exclusivas e monitore seu portfólio com facilidade!">
-  <meta property="og:image" content="https://trackcripto.netlify.app/assets/c:\Users\PC\landingpageTC\img\foto1.png">
+  <meta property="og:image" content="https://trackcriptodb.netlify.app/assets/foto1.png">
   <meta property="og:url" content="https://trackcripto.netlify.app">
   <meta property="og:type" content="website">
   <meta property="og:image:width" content="1200">
@@ -939,6 +939,485 @@
       gap: 5px;
       margin-top: 10px;
     }
+
+    /* Container para os controles do header */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Container do toggle de modo */
+.mode-toggle-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(0, 255, 136, 0.1);
+  padding: 8px 15px;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 255, 136, 0.2);
+}
+
+.mode-text {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--text);
+}
+
+/* Switch personalizado */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.switch .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 24px;
+}
+
+.switch .slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+.switch input:checked + .slider {
+  background-color: var(--primary);
+}
+
+.switch input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+/* Botão de tema */
+.theme-btn {
+  background: rgba(0, 255, 136, 0.1);
+  color: var(--text);
+  border: 1px solid var(--primary);
+  padding: 8px 15px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s;
+}
+
+.theme-btn:hover {
+  background: rgba(0, 255, 136, 0.2);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .header-right {
+    gap: 10px;
+  }
+  
+  .mode-toggle-container {
+    padding: 6px 12px;
+  }
+  
+  .mode-text {
+    font-size: 12px;
+  }
+  
+  .switch {
+    width: 45px;
+    height: 22px;
+  }
+  
+  .switch .slider:before {
+    height: 16px;
+    width: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-right {
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-end;
+  }
+  
+  .mode-text {
+    display: none;
+  }
+  
+  .mode-toggle-container {
+    padding: 5px 10px;
+  }
+}
+
+/* Quiz Modal */
+.quiz-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  backdrop-filter: blur(10px);
+}
+
+.quiz-container {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  border-radius: 20px;
+  padding: 30px;
+  width: 90%;
+  max-width: 500px;
+  border: 2px solid #00ff88;
+  box-shadow: 0 0 50px rgba(0, 255, 136, 0.3);
+  animation: modalSlideIn 0.6s ease-out;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.quiz-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.quiz-header h2 {
+  color: #00ff88;
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.quiz-header p {
+  color: #ccc;
+  margin-bottom: 20px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 6px;
+  background: #333;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #00ff88, #39ff14);
+  width: 33%;
+  transition: width 0.5s ease;
+  border-radius: 3px;
+}
+
+/* Questions */
+.question {
+  display: none;
+  animation: questionFadeIn 0.5s ease;
+}
+
+.question.active {
+  display: block;
+}
+
+@keyframes questionFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.question h3 {
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.option-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid transparent;
+  padding: 20px;
+  border-radius: 15px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  text-align: left;
+}
+
+.option-btn:hover {
+  background: rgba(0, 255, 136, 0.2);
+  border-color: #00ff88;
+  transform: translateY(-2px);
+}
+
+.option-btn:active {
+  transform: translateY(0);
+}
+
+.emoji {
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+/* Quiz Footer */
+.quiz-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #333;
+}
+
+.nav-btn {
+  background: rgba(0, 255, 136, 0.2);
+  border: 2px solid #00ff88;
+  color: #00ff88;
+  padding: 12px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.nav-btn:hover:not(:disabled) {
+  background: #00ff88;
+  color: #000;
+  transform: translateY(-2px);
+}
+
+.nav-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.question-counter {
+  color: #00ff88;
+  font-weight: 600;
+}
+
+/* Result Screen */
+.quiz-result {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  backdrop-filter: blur(15px);
+}
+
+.result-container {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  border-radius: 25px;
+  padding: 40px;
+  text-align: center;
+  border: 3px solid #00ff88;
+  box-shadow: 0 0 60px rgba(0, 255, 136, 0.4);
+  animation: resultScaleIn 0.8s ease-out;
+}
+
+@keyframes resultScaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8) rotate(-5deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+.result-icon {
+  font-size: 80px;
+  margin-bottom: 20px;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-20px);
+  }
+  60% {
+    transform: translateY(-10px);
+  }
+}
+
+.result-desc {
+  color: #ccc;
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.profile-name {
+  display: inline-block;
+  background: linear-gradient(90deg, #00ff88, #39ff14);
+  color: #000;
+  padding: 10px 25px;
+  border-radius: 25px;
+  font-weight: 800;
+  font-size: 18px;
+  margin: 15px 0;
+  animation: glow 2s infinite;
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(0, 255, 136, 0.8);
+  }
+}
+
+.cta-btn {
+  background: linear-gradient(90deg, #00ff88, #39ff14);
+  color: #000;
+  border: none;
+  padding: 18px 35px;
+  border-radius: 30px;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  margin: 20px 0;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 25px rgba(0, 255, 136, 0.3);
+}
+
+.cta-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 30px rgba(0, 255, 136, 0.5);
+}
+
+.text-btn {
+  background: none;
+  border: none;
+  color: #00ff88;
+  cursor: pointer;
+  font-size: 14px;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.text-btn:hover {
+  opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .quiz-container {
+    width: 95%;
+    padding: 20px;
+  }
+  
+  .option-btn {
+    padding: 15px;
+    font-size: 14px;
+  }
+  
+  .result-icon {
+    font-size: 60px;
+  }
+}
+
+/* Adicione estas animações extras */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+.option-btn.correct {
+  animation: pulse 0.5s ease;
+  background: rgba(0, 255, 136, 0.3) !important;
+  border-color: #00ff88 !important;
+}
+
+.option-btn.incorrect {
+  animation: shake 0.5s ease;
+  background: rgba(255, 77, 77, 0.3) !important;
+  border-color: #ff4d4d !important;
+}
+
+/* Efeito de confetti virtual */
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #00ff88;
+  opacity: 0.8;
+  animation: confettiFall 2s ease-in-out;
+}
+
+@keyframes confettiFall {
+  0% {
+    transform: translateY(-100px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
   </style>
 </head>
 
@@ -948,32 +1427,33 @@
 
 <body>
   <header class="app-header">
-    <div class="logo">
-      <span class="logo-track">Track</span>
-      <span class="logo-crypto">Cripto</span>
+  <div class="logo">
+    <span class="logo-track">Track</span>
+    <span class="logo-crypto">Cripto</span>
+  </div>
+
+  <div class="header-right">
+    <!-- Botão de Modo Iniciante/Avançado -->
+    <div class="mode-toggle-container">
+      <span class="mode-text" id="modeText">Iniciante</span>
+      <label class="switch">
+        <input type="checkbox" id="advancedModeToggle">
+        <span class="slider"></span>
+      </label>
     </div>
 
-    <div class="header-right">
-      <button id="themeToggle" class="theme-btn" aria-label="Alternar tema">
-        <i class="fas fa-moon"></i>
-      </button>
+    <!-- Botão de Tema -->
+    <button id="themeToggle" class="theme-btn" aria-label="Alternar tema">
+      <i class="fas fa-moon"></i>
+    </button>
+  </div>
+</header>
     
   </header>
 
   <script>
     // Toggle Tema Claro/Escuro
-    const themeToggle = document.getElementById('themeToggle');
-    const themeText = document.getElementById('theme-text');
-
-    themeToggle.addEventListener('click', () => {
-      document.body.classList.toggle('dark-theme');
-      const isDark = document.body.classList.contains('dark-theme');
-      themeText.textContent = isDark ? 'Modo Claro' : 'Modo Escuro';
-      themeToggle.innerHTML = isDark
-        ? '<i class="fas fa-sun"></i> Modo Claro'
-        : '<i class="fas fa-moon"></i> Modo Escuro';
-    });
-
+  
     // Toggle Modo Iniciante/Avançado
     const modeToggle = document.getElementById('trader-mode-toggle');
     const modeText = document.getElementById('mode-text');
@@ -1389,10 +1869,37 @@
       .user-count i {
         color: var(--primary);
       }
+
+      /* Para mobile, mostra ícone em vez de texto */
+@media (max-width: 480px) {
+  .mode-toggle-container::before {
+    content: '🎓';
+    font-size: 16px;
+  }
+  
+  .mode-text {
+    display: none;
+  }
+  
+  /* Tooltip para explicar o toggle */
+  .mode-toggle-container:hover::after {
+    content: 'Modo Iniciante/Avançado';
+    position: absolute;
+    bottom: -30px;
+    right: 0;
+    background: var(--card);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    white-space: nowrap;
+    z-index: 1000;
+    border: 1px solid var(--primary);
+  }
+}
     </style>
 
     <!-- Crypto Price Card -->
-    <div class="card" id="crypto-data">
+    <div class="card beginner-mode" id="crypto-data">
       <div style="display: flex; justify-content: space-between; align-items: center;">
         <h2 id="cryptoName">Bitcoin (BTC)</h2>
         <div style="position:relative;">
@@ -1414,7 +1921,7 @@
     </div>
 
     <!-- Advanced Metrics -->
-    <div class="card">
+    <div class="card beginner-mode">
       <h2><i class="fas fa-chart-bar"></i> Métricas Avançadas</h2>
       <div class="metrics-grid">
         <div class="metric-card">
@@ -1437,7 +1944,7 @@
     </div>
 
     <!-- Chart -->
-    <div class="card">
+    <div class="card beginner-mode">
       <h2><i class="fas fa-chart-line"></i> Histórico de Preços (7 Dias)</h2>
       <div class="chart-container">
         <canvas id="graficoBTC"></canvas>
@@ -1445,7 +1952,7 @@
     </div>
 
     <!-- Índices de Mercado -->
-    <div class="card" id="market-indices">
+    <div class="card advanced-mode" id="market-indices">
       <h2><i class="fas fa-globe"></i> Índices de Mercado</h2>
 
       <div class="market-indices-grid">
@@ -1487,7 +1994,7 @@
       </div>
     </div>
 
-    <div class="card" style="margin-top: 20px; border: 1px solid rgba(240, 185, 11, 0.3);">
+    <div class="card beginner-mode" style="margin-top: 20px; border: 1px solid rgba(240, 185, 11, 0.3);">
       <h2 style="margin-bottom: 15px;"><i class="fas fa-exchange-alt"></i> Comprar/Vender na Binance</h2>
 
       <div class="binance-cta">
@@ -1505,7 +2012,7 @@
     </div>
 
     <!-- Portfólio Simulador -->
-    <div class="card" id="portfolio">
+    <div class="card advanced-mode" id="portfolio">
       <h2><i class="fas fa-chart-pie"></i> Meu Portfólio</h2>
       <div class="portfolio-controls">
         <button id="addAsset" class="btn"><i class="fas fa-plus"></i> Adicionar Ativo</button>
@@ -1535,7 +2042,7 @@
     </div>
 
     <!-- Fear & Greed Index -->
-    <div class="card" id="fear-greed-section">
+    <div class="card beginner-mode" id="fear-greed-section">
       <h2><i class="fas fa-brain"></i> Índice Fear & Greed (BTC)</h2>
       <div id="fear-greed">
         <div id="fear-greed-indicator"></div>
@@ -1550,8 +2057,9 @@
       </p>
 
     </div>
-    </div <!-- Mapa de Liquidações -->
-    <div class="card" style="margin-top: 20px;">
+  </div>
+    <!-- Mapa de Liquidações -->
+    <div class="card advanced-mode" style="margin-top: 20px;">
       <h3><i class="fas fa-water"></i> Mapa de Liquidações (24h)</h3>
       <div id="liquidations-map"
         style="font-family: monospace; background: rgba(0,0,0,0.3); padding: 10px; border-radius: 5px;">
@@ -1562,7 +2070,7 @@
     </div>
 
     <!-- SIMULADOR DE PUMP/DUMP -->
-    <div class="card" id="pump-simulator" style="margin-bottom: 30px;">
+    <div class="card advanced-mode" id="pump-simulator" style="margin-bottom: 30px;">
       <h2><i class="fas fa-bolt"></i> Simulador de Pump/Dump</h2>
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px;">
         <div>
@@ -1613,7 +2121,7 @@
     </script>
 
     <!-- Alertas de Preço -->
-    <div class="card" id="alertas-preco">
+    <div class="card advanced-mode" id="alertas-preco">
       <h2><i class="fas fa-bell"></i> Alertas de Preço</h2>
       <div id="alertsContainer">
         <!-- Alertas serão adicionados aqui -->
@@ -1624,7 +2132,7 @@
     </div>
 
     <!-- Calculadora de Trade -->
-    <div class="card" id="profit-calculator">
+    <div class="card advanced-mode" id="profit-calculator">
       <h2><i class="fas fa-calculator"></i> Calculadora de Trade</h2>
       <div>
         <label>Moeda:</label>
@@ -1657,7 +2165,7 @@
     </div>
 
     <!-- Risk Calculator -->
-    <div class="card" id="risk-calculator">
+    <div class="card advanced-mode" id="risk-calculator">
       <h2><i class="fas fa-calculator"></i> Calculadora de Risco</h2>
       <div style="margin: 15px 0;">
         <label>Valor do Investimento (R$)</label>
@@ -1686,14 +2194,14 @@
     </div>
 
     <!-- News Section -->
-    <div class="card" id="news">
+    <div class="card beginner-mode" id="news">
       <h2><i class="fas fa-newspaper"></i> Últimas Notícias</h2>
       <div id="news-container">
         <p style="color: var(--text-muted);">Carregando notícias...</p>
       </div>
     </div>
 
-    <div class="card" id="plataformas"
+    <div class="card advanced-mode" id="plataformas"
       style="margin-top: 20px; background: rgba(0, 255, 136, 0.03); border: 1px solid rgba(0, 255, 136, 0.1);">
       <h3 style="font-size: 1.1rem; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;">
         <i class="fas fa-medal" style="color: var(--primary);"></i> Melhores Plataformas
@@ -1733,7 +2241,7 @@
     </div>
 
     <!-- Seção Educativa -->
-    <div class="card" id="educativa">
+    <div class="card beginner-mode" id="educativa">
       <h2><i class="fas fa-graduation-cap"></i> Educação Cripto</h2>
 
       <!-- Abas de navegação -->
@@ -3016,11 +3524,473 @@
       });
     });
   });
+
+  // ==============================================
+// 🔥 CÓDIGO CORRIGIDO - TEMA + MODO
+// ==============================================
+
+// Configuração do Toggle de Tema (Claro/Escuro) - VERSÃO CORRIGIDA
+function setupThemeToggle() {
+  const themeToggle = document.getElementById('themeToggle');
+  if (!themeToggle) {
+    console.log('Botão de tema não encontrado!');
+    return;
+  }
+  
+  // Verificar se já existe um event listener (evitar duplicata)
+  themeToggle.replaceWith(themeToggle.cloneNode(true));
+  const newThemeToggle = document.getElementById('themeToggle');
+  
+  // Verificar preferência salva ou do sistema
+  const savedTheme = localStorage.getItem('theme');
+  const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const initialTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+  
+  // Aplicar tema inicial
+  document.documentElement.setAttribute('data-theme', initialTheme);
+  updateToggleIcon(initialTheme);
+
+  // Alternar tema - USANDO O NOVO ELEMENTO (sem duplicatas)
+  newThemeToggle.addEventListener('click', function() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    
+    console.log('Alternando tema para:', newTheme);
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    updateToggleIcon(newTheme);
+  });
+
+  function updateToggleIcon(theme) {
+    const icon = newThemeToggle.querySelector('i');
+    if (!icon) return;
+    
+    if (theme === 'dark') {
+      icon.className = 'fas fa-sun';
+      newThemeToggle.setAttribute('aria-label', 'Alternar para modo claro');
+    } else {
+      icon.className = 'fas fa-moon';
+      newThemeToggle.setAttribute('aria-label', 'Alternar para modo escuro');
+    }
+  }
+}
+
+// Configuração do Toggle de Modo Iniciante/Avançado
+function setupAdvancedModeToggle() {
+  const modeToggle = document.getElementById('advancedModeToggle');
+  if (!modeToggle) return;
+  
+  const modeText = document.getElementById('modeText');
+  const advancedSections = document.querySelectorAll('.advanced-mode');
+
+  function loadModePreference() {
+    const savedMode = localStorage.getItem('advancedMode') === 'true';
+    modeToggle.checked = savedMode;
+    updateModeDisplay(savedMode);
+  }
+
+  function updateModeDisplay(isAdvanced) {
+    if (isAdvanced) {
+      advancedSections.forEach(section => {
+        section.style.display = 'block';
+        section.classList.add('fade-in');
+      });
+      if (modeText) modeText.textContent = 'Avançado';
+    } else {
+      advancedSections.forEach(section => {
+        section.style.display = 'none';
+      });
+      if (modeText) modeText.textContent = 'Iniciante';
+    }
+  }
+
+  modeToggle.addEventListener('change', function() {
+    const isAdvanced = this.checked;
+    localStorage.setItem('advancedMode', isAdvanced);
+    updateModeDisplay(isAdvanced);
+  });
+
+  loadModePreference();
+}
+
+// Adicionar animação de fade-in
+const style = document.createElement('style');
+style.textContent = `
+  .fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+`;
+document.head.appendChild(style);
+
+// Inicializar TUDO - COM PROTECÇÃO CONTRA DUPLICATAS
+let initialized = false;
+function initializeAll() {
+  if (initialized) return;
+  initialized = true;
+  
+  console.log('Inicializando controles...');
+  setupThemeToggle();
+  setupAdvancedModeToggle();
+}
+
+// Múltiplas formas de inicializar para garantir
+document.addEventListener('DOMContentLoaded', initializeAll);
+window.addEventListener('load', initializeAll);
+setTimeout(initializeAll, 1000); // Backup
+
+// ==============================================
+// 🎮 QUIZ INTERATIVO - PERFIL DO INVESTIDOR
+// ==============================================
+
+class CryptoQuiz {
+  constructor() {
+    this.currentQuestion = 1;
+    this.totalQuestions = 3;
+    this.answers = [];
+    this.quizElement = document.getElementById('quizModal');
+    this.resultElement = document.getElementById('quizResult');
+    
+    this.init();
+  }
+
+  init() {
+    this.bindEvents();
+    this.showQuiz();
+  }
+
+  bindEvents() {
+    // Opções de resposta
+    document.querySelectorAll('.option-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => this.selectOption(e));
+    });
+
+    // Navegação
+    document.getElementById('prevQuestion').addEventListener('click', () => this.prevQuestion());
+    document.getElementById('nextQuestion').addEventListener('click', () => this.nextQuestion());
+    
+    // Resultado
+    document.getElementById('startDashboard').addEventListener('click', () => this.startDashboard());
+    document.getElementById('changeMode').addEventListener('click', () => this.changeMode());
+  }
+
+  showQuiz() {
+    if (localStorage.getItem('quizCompleted')) return;
+    
+    setTimeout(() => {
+      this.quizElement.style.display = 'flex';
+      this.updateProgress();
+      this.updateNavigation();
+    }, 1000);
+  }
+
+  selectOption(e) {
+    const option = e.currentTarget;
+    const value = option.dataset.value;
+    
+    // Remover seleção anterior
+    document.querySelectorAll('.option-btn').forEach(btn => {
+      btn.style.background = '';
+      btn.style.borderColor = '';
+    });
+    
+    // Estilizar opção selecionada
+    option.style.background = 'rgba(0, 255, 136, 0.3)';
+    option.style.borderColor = '#00ff88';
+    
+    // Salvar resposta
+    this.answers[this.currentQuestion - 1] = value;
+    
+    // Habilitar próximo
+    document.getElementById('nextQuestion').disabled = false;
+  }
+
+  nextQuestion() {
+    if (this.currentQuestion < this.totalQuestions) {
+      this.hideQuestion(this.currentQuestion);
+      this.currentQuestion++;
+      this.showQuestion(this.currentQuestion);
+      this.updateProgress();
+      this.updateNavigation();
+    } else {
+      this.showResult();
+    }
+  }
+
+  prevQuestion() {
+    if (this.currentQuestion > 1) {
+      this.hideQuestion(this.currentQuestion);
+      this.currentQuestion--;
+      this.showQuestion(this.currentQuestion);
+      this.updateProgress();
+      this.updateNavigation();
+    }
+  }
+
+  showQuestion(questionNum) {
+    const question = document.querySelector(`[data-question="${questionNum}"]`);
+    question.classList.add('active');
+    question.style.display = 'block';
+  }
+
+  hideQuestion(questionNum) {
+    const question = document.querySelector(`[data-question="${questionNum}"]`);
+    question.classList.remove('active');
+    question.style.display = 'none';
+  }
+
+  updateProgress() {
+    const progress = (this.currentQuestion / this.totalQuestions) * 100;
+    document.querySelector('.progress-fill').style.width = `${progress}%`;
+    document.querySelector('.question-counter').textContent = `${this.currentQuestion}/${this.totalQuestions}`;
+  }
+
+  updateNavigation() {
+    document.getElementById('prevQuestion').disabled = this.currentQuestion === 1;
+    document.getElementById('nextQuestion').disabled = !this.answers[this.currentQuestion - 1];
+  }
+
+  showResult() {
+    const profile = this.calculateProfile();
+    
+    // Animação de transição
+    this.quizElement.style.animation = 'modalSlideOut 0.5s ease-in forwards';
+    
+    setTimeout(() => {
+      this.quizElement.style.display = 'none';
+      this.displayResult(profile);
+      this.resultElement.style.display = 'flex';
+    }, 500);
+  }
+
+  calculateProfile() {
+    const beginnerAnswers = this.answers.filter(a => a === 'beginner').length;
+    const advancedAnswers = this.answers.filter(a => a === 'advanced').length;
+    
+    return advancedAnswers > beginnerAnswers ? 'advanced' : 'beginner';
+  }
+
+  displayResult(profile) {
+    const results = {
+      beginner: {
+        icon: '🌱',
+        title: 'Explorador Iniciante!',
+        description: 'Você está começando sua jornada no mundo cripto. Vamos devagar e sempre!',
+        profileName: 'Broto Crypto'
+      },
+      advanced: {
+        icon: '🚀',
+        title: 'Trader Acelerado!', 
+        description: 'Você já domina as criptomoedas! Prepare-se para análise profunda.',
+        profileName: 'Tubarão das Criptos'
+      }
+    };
+
+    const result = results[profile];
+    
+    document.getElementById('resultIcon').textContent = result.icon;
+    document.getElementById('resultTitle').textContent = result.title;
+    document.getElementById('resultDescription').textContent = result.description;
+    document.getElementById('resultProfileName').textContent = result.profileName;
+    
+    // Aplicar modo automaticamente
+    localStorage.setItem('userProfile', profile);
+    localStorage.setItem('quizCompleted', 'true');
+    
+    if (profile === 'advanced') {
+      document.getElementById('advancedModeToggle').checked = true;
+      this.updateModeDisplay(true);
+    }
+  }
+
+  updateModeDisplay(isAdvanced) {
+    const advancedSections = document.querySelectorAll('.advanced-mode');
+    const modeText = document.getElementById('modeText');
+    
+    if (isAdvanced) {
+      advancedSections.forEach(section => {
+        section.style.display = 'block';
+        section.classList.add('fade-in');
+      });
+      if (modeText) modeText.textContent = 'Avançado';
+    } else {
+      advancedSections.forEach(section => {
+        section.style.display = 'none';
+      });
+      if (modeText) modeText.textContent = 'Iniciante';
+    }
+  }
+
+  startDashboard() {
+    this.resultElement.style.animation = 'resultScaleOut 0.5s ease-in forwards';
+    
+    setTimeout(() => {
+      this.resultElement.style.display = 'none';
+      // Focar no conteúdo principal
+      document.getElementById('crypto-data').scrollIntoView({
+        behavior: 'smooth'
+      });
+    }, 500);
+  }
+
+  changeMode() {
+    this.resultElement.style.display = 'none';
+    this.quizElement.style.display = 'flex';
+    this.quizElement.style.animation = 'modalSlideIn 0.5s ease-out';
+    
+    // Resetar quiz
+    this.currentQuestion = 1;
+    this.answers = [];
+    this.hideQuestion(2);
+    this.hideQuestion(3);
+    this.showQuestion(1);
+    this.updateProgress();
+    this.updateNavigation();
+    
+    // Limpar seleções
+    document.querySelectorAll('.option-btn').forEach(btn => {
+      btn.style.background = '';
+      btn.style.borderColor = '';
+    });
+  }
+}
+
+// Adicionar animações extras
+const quizStyles = `
+  @keyframes modalSlideOut {
+    from {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(50px) scale(0.9);
+    }
+  }
+  
+  @keyframes resultScaleOut {
+    from {
+      opacity: 1;
+      transform: scale(1) rotate(0);
+    }
+    to {
+      opacity: 0;
+      transform: scale(0.8) rotate(5deg);
+    }
+  }
+  
+  .option-btn {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+`;
+
+const styleSheet = document.createElement('style');
+styleSheet.textContent = quizStyles;
+document.head.appendChild(styleSheet);
+
+// Inicializar quiz quando o DOM carregar
+document.addEventListener('DOMContentLoaded', () => {
+  // Só inicializar se não completou o quiz
+  if (!localStorage.getItem('quizCompleted')) {
+    setTimeout(() => {
+      new CryptoQuiz();
+    }, 2000);
+  }
+});
   </script>
 
-
   </script>
+<!-- Quiz Modal -->
+<div id="quizModal" class="quiz-modal" style="display: none;">
+  <div class="quiz-container">
+    <div class="quiz-header">
+      <h2>🎯 Descubra Seu Perfil Cripto</h2>
+      <p>Responda 3 perguntas rápidas para personalizarmos sua experiência!</p>
+      <div class="progress-bar">
+        <div class="progress-fill"></div>
+      </div>
+    </div>
 
+    <div class="quiz-content">
+      <!-- Pergunta 1 -->
+      <div class="question active" data-question="1">
+        <h3>Quando o Bitcoin cai 10% você…</h3>
+        <div class="options">
+          <button class="option-btn" data-value="beginner">
+            <span class="emoji">😅</span>
+            <span>Fico desesperado e vendo tudo</span>
+          </button>
+          <button class="option-btn" data-value="advanced">
+            <span class="emoji">😎</span>
+            <span>Compro mais sem medo</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Pergunta 2 -->
+      <div class="question" data-question="2">
+        <h3>Seu conhecimento sobre criptomoedas é…</h3>
+        <div class="options">
+          <button class="option-btn" data-value="beginner">
+            <span class="emoji">🌱</span>
+            <span>Bitcoin é aquilo que subiu né?</span>
+          </button>
+          <button class="option-btn" data-value="advanced">
+            <span class="emoji">🧠</span>
+            <span>Sei explicar blockchain pra minha avó</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Pergunta 3 -->
+      <div class="question" data-question="3">
+        <h3>Prefiro acompanhar meus investimentos…</h3>
+        <div class="options">
+          <button class="option-btn" data-value="beginner">
+            <span class="emoji">📅</span>
+            <span>Uma vez por mês tá bom</span>
+          </button>
+          <button class="option-btn" data-value="advanced">
+            <span class="emoji">⏰</span>
+            <span>Todo dia, várias vezes ao dia</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz-footer">
+      <button id="prevQuestion" class="nav-btn" disabled>
+        <i class="fas fa-arrow-left"></i> Voltar
+      </button>
+      <span class="question-counter">1/3</span>
+      <button id="nextQuestion" class="nav-btn" disabled>
+        Próxima <i class="fas fa-arrow-right"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Resultado do Quiz -->
+<div id="quizResult" class="quiz-result" style="display: none;">
+  <div class="result-container">
+    <div class="result-icon" id="resultIcon">🚀</div>
+    <h2 id="resultTitle">Seu Perfil Cripto</h2>
+    <p id="resultDescription" class="result-desc"></p>
+    <div class="result-profile">
+      <span id="resultProfileName" class="profile-name"></span>
+    </div>
+    <button id="startDashboard" class="cta-btn">
+      Começar a Explorar <i class="fas fa-rocket"></i>
+    </button>
+    <button id="changeMode" class="text-btn">
+      Quero tentar outro modo
+    </button>
+  </div>
+</div>
 </body>
 
 </html>
