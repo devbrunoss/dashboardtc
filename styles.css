@@ -4605,3 +4605,41 @@ footer {
     gap: 10px;
   }
 }
+
+/* Corrigir botões que vazam para fora da tela */
+#modeToggle,
+#themeToggle {
+    max-width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/* Garantir que os botões no header não ultrapassem */
+.header-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap; /* força quebra em telas pequenas */
+    justify-content: flex-end;
+}
+
+/* Corrigir botão do chat IA */
+#chatToggle {
+    right: 20px;  /* menos afastado da borda */
+    bottom: 20px;
+    max-width: calc(100% - 40px); /* evita passar da tela */
+    overflow: hidden;
+}
+
+@media (max-width: 480px) {
+    #chatToggle {
+        right: 10px;
+        bottom: 10px;
+        width: 50px;
+        height: 50px;
+    }
+
+    .header-actions {
+        justify-content: center; /* centraliza os botões no mobile */
+    }
+}
