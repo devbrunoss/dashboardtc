@@ -51,6 +51,7 @@ body {
 /* Header ajustado para mobile */
 header {
     display: flex;
+    max-width: 100%;
     justify-content: space-between;
     align-items: center;
     padding: 10px 0; /* Reduzido para mobile */
@@ -96,6 +97,11 @@ header {
     padding: 15px 0;
     border-bottom: 1px solid rgba(0, 255, 136, 0.1);
     margin-bottom: 30px;
+}
+
+header * {
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .logo {
