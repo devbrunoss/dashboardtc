@@ -4708,24 +4708,92 @@ footer {
     }
 }
 
-/* Evitar que botões vazem em telas pequenas */
-.header-controls,
+
+
+/* ======================================================
+   HOTFIX - Mobile overflow (buttons leaking on small phones)
+   Place at the very end of styles.css so it overrides earlier rules
+   Tested idea: allow wrapping, let text shrink, cap tooltips, and shrink buttons a bit on tiny widths
+   ====================================================== */
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden; /* kill horizontal scroll if anything slips */
+}
+
+/* Header rows can wrap on small screens */
+.professional-header,
+.app-header,
+header {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Let the logo/text side shrink instead of forcing overflow */
+.header-logo,
+.logo,
+.logo-text {
+  min-width: 0;      /* critical for flex children to shrink */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Make action areas wrap when needed */
 .header-actions,
-.portfolio-controls {
-  flex-wrap: wrap;   /* deixa quebrar linha se faltar espaço */
-  justify-content: center; /* centraliza no mobile */
+.header-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-end;
 }
 
-/* Ajuste dos botões para não ultrapassarem */
+/* Tooltips should not push layout horizontally */
 .control-btn,
-.action-btn,
-.btn {
-  max-width: 100%; /* nunca maior que o container */
-  flex: 1 1 auto;  /* adaptável */
+.action-btn {
+  position: relative; /* contain pseudo tooltip */
 }
 
-/* Extra para evitar scroll lateral */
-body {
-  overflow-x: hidden;
+.control-btn::after,
+.tooltip {
+  max-width: calc(100vw - 40px);
+  white-space: normal;        /* allow wrapping */
+  word-break: break-word;
+  overflow-wrap: anywhere;
 }
 
+/* Extra safety for common fixed-size round buttons */
+@media (max-width: 420px) {
+  .professional-header,
+  .app-header,
+  header {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .action-btn,
+  .control-btn,
+  .btn-icon {
+    width: 36px !important;
+    height: 36px !important;
+  }
+
+  .header-actions,
+  .header-controls {
+    gap: 8px;
+    justify-content: center; /* stack/center if needed */
+  }
+}
+
+/* Generic safety: images and SVG never exceed viewport */
+img, svg, canvas, video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Make flex children allowed to shrink */
+.header-actions > *,
+.header-controls > * {
+  min-width: 0;
+  max-width: 100%;
+}
