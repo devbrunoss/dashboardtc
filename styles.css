@@ -28,7 +28,65 @@ body {
     background: var(--bg);
     color: var(--text);
     min-height: 100vh;
-    padding: 20px;
+    padding: 10px; /* Reduzido de 20px */
+    width: 100%;
+    overflow-x: hidden; /* Impede scroll horizontal */
+}
+
+.card, header, section, footer, .metrics-grid, .chart-container {
+    box-sizing: border-box;
+}
+
+.card {
+    background: var(--card);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-radius: 12px;
+    padding: 15px; /* Reduzido para mobile */
+    margin-bottom: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(0, 255, 136, 0.1);
+    width: 100%; /* Garante que ocupa toda a largura */
+}
+
+/* Header ajustado para mobile */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0; /* Reduzido para mobile */
+    border-bottom: 1px solid rgba(0, 255, 136, 0.1);
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+/* Media query específica para mobile */
+@media (max-width: 768px) {
+    body {
+        padding: 10px 5px; /* Menos padding nas laterais */
+    }
+    
+    .card {
+        padding: 12px;
+        margin-bottom: 12px;
+        border-radius: 10px;
+    }
+    
+    header {
+        padding: 8px 0;
+        margin-bottom: 15px;
+    }
+    
+    /* Garantir que todos os elementos internos não ultrapassem a largura */
+    .metrics-grid, .chart-container, .portfolio-content {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+/* Correção adicional para elementos que podem estar causando overflow */
+section, footer, .app-header {
+    max-width: 100%;
+    overflow: hidden;
 }
 
 header {
