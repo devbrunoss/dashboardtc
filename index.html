@@ -1,20 +1,23 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme="dark" data-mode="advanced">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TrackCripto - Dashboard Profissional para Criptomoedas</title>
-  
+
   <!-- Meta Tags para SEO -->
   <meta property="og:title" content="TrackCripto - Dashboard Profissional para Criptomoedas">
-  <meta property="og:description" content="Acompanhe os preços, tendências e índices das principais criptomoedas em tempo real.">
+  <meta property="og:description"
+    content="Acompanhe os preços, tendências e índices das principais criptomoedas em tempo real.">
   <meta property="og:image" content="https://trackcriptodb.netlify.app/assets/foto1.png">
   <meta property="og:url" content="https://trackcripto.netlify.app">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="TrackCripto • Ferramentas Cripto">
-  <meta name="twitter:description" content="Veja sinais de compra ou venda com base no medo e euforia do mercado cripto.">
-  
+  <meta name="twitter:description"
+    content="Veja sinais de compra ou venda com base no medo e euforia do mercado cripto.">
+
   <!-- Schema.org markup -->
   <script type="application/ld+json">
   {
@@ -26,18 +29,19 @@
     "applicationCategory": "FinanceApplication"
   }
   </script>
-  
+
   <!-- Bibliotecas externas -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
-  
+
   <!-- Arquivos locais -->
   <link rel="stylesheet" href="styles.css">
-  
+
   <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%2239ff14%22>T</text></svg>">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%2239ff14%22>T</text></svg>">
 </head>
 
 <body>
@@ -45,78 +49,27 @@
     <i class="fas fa-arrow-up"></i>
   </button>
 
-  <header class="app-header">
+  <!-- Header Simplificado -->
+ <header id="pageHeader" class="professional-header">
     <div class="logo">
         <span class="logo-track">Track</span>
         <span class="logo-crypto">Cripto</span>
     </div>
-
-    <div class="header-controls">
-        <!-- Toggle Iniciante/Avançado -->
-        <div class="mode-toggle-container">
-            <span class="mode-text" id="modeText">Iniciante</span>
-            <label class="switch">
-                <input type="checkbox" id="advancedModeToggle">
-                <span class="slider"></span>
-            </label>
-        </div>
-
-        <!-- Botão Tema (só ícone) -->
-        <button id="themeToggle" class="theme-btn" aria-label="Alternar tema">
-            <i class="fas fa-moon"></i>
-        </button>
+    
+    <div class="header-actions">
+      <button id="themeToggle" class="action-btn" aria-label="Alternar tema">
+        <i class="fas fa-moon"></i>
+        <span class="tooltip">Alternar tema</span>
+      </button>
+      
+      <button id="modeToggle" class="action-btn" aria-label="Modo iniciante">
+        <i class="fas fa-graduation-cap"></i>
+        <span class="tooltip">Modo iniciante</span>
+      </button>
     </div>
+  </header>
 
-    <!-- Menu Hamburger -->
-    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
-        <span class="menu-bar"></span>
-        <span class="menu-bar"></span>
-        <span class="menu-bar"></span>
-    </button>
 
-    <nav class="main-nav" id="mainNav">
-        <div class="nav-header">
-            <h3>TrackCripto</h3>
-            <button class="close-menu" id="closeMenu">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        
-        <div class="nav-controls">
-            <div class="nav-control-item">
-                <i class="fas fa-graduation-cap"></i>
-                <span>Modo Iniciante/Avançado</span>
-                <label class="switch">
-                    <input type="checkbox" id="navModeToggle">
-                    <span class="slider"></span>
-                </label>
-            </div>
-            
-            <div class="nav-control-item">
-                <i class="fas fa-moon"></i>
-                <span>Tema Escuro/Claro</span>
-                <button id="navThemeToggle" class="theme-btn-nav">
-                    <i class="fas fa-sun"></i>
-                </button>
-            </div>
-        </div>
-        
-        <div class="nav-divider"></div>
-        
-        <ul class="nav-links">
-            <li><a href="#crypto-data"><i class="fas fa-coins"></i> Cotações</a></li>
-            <li><a href="#graficoBTC"><i class="fas fa-chart-line"></i> Gráfico</a></li>
-            <li><a href="#educativa"><i class="fas fa-graduation-cap"></i> Educação</a></li>
-            <li><a href="#market-indices"><i class="fas fa-globe"></i> Índices do Mercado</a></li>
-            <li><a href="#plataformas"><i class="fas fa-medal"></i> Melhores Plataformas</a></li>
-            <li><a href="#news"><i class="fas fa-newspaper"></i> Notícias</a></li>
-        </ul>
-        
-        <div class="nav-footer">
-            <p>TrackCripto &copy; 2025</p>
-        </div>
-    </nav>
-</header>
 
   <main>
     <!-- Crypto Price Card -->
@@ -164,55 +117,365 @@
     </div>
 
     <!-- Chart -->
-    <div class="card beginner-mode">
-      <h2><i class="fas fa-chart-line"></i> Histórico de Preços (7 Dias)</h2>
-      <div class="chart-container">
-        <canvas id="graficoBTC"></canvas>
-      </div>
+    <div class="card beginner-mode" id="price-chart">
+  <div class="chart-header">
+    <h2><i class="fas fa-chart-line"></i> Histórico de Preços (7 Dias)</h2>
+    <div class="chart-controls">
+      <select id="cryptoSelect" class="crypto-select">
+        <option value="bitcoin">Bitcoin (BTC)</option>
+        <option value="ethereum">Ethereum (ETH)</option>
+        <option value="binancecoin">BNB (BNB)</option>
+        <option value="solana">Solana (SOL)</option>
+        <option value="cardano">Cardano (ADA)</option>
+        <option value="ripple">XRP (XRP)</option>
+        <option value="dogecoin">Dogecoin (DOGE)</option>
+        <option value="polkadot">Polkadot (DOT)</option>
+        <option value="litecoin">Litecoin (LTC)</option>
+        <option value="chainlink">Chainlink (LINK)</option>
+      </select>
+      <button id="refreshChart" class="btn-icon" title="Atualizar gráfico">
+        <i class="fas fa-sync-alt"></i>
+      </button>
     </div>
+  </div>
+  
+  <div class="chart-stats" id="chartStats">
+    <div class="chart-stat">
+      <span class="stat-label">Preço Atual</span>
+      <span class="stat-value" id="currentPrice">R$ --</span>
+    </div>
+    <div class="chart-stat">
+      <span class="stat-label">Variação 7D</span>
+      <span class="stat-value" id="priceChange">--%</span>
+    </div>
+    <div class="chart-stat">
+      <span class="stat-label">Mínima 7D</span>
+      <span class="stat-value" id="minPrice">R$ --</span>
+    </div>
+    <div class="chart-stat">
+      <span class="stat-label">Máxima 7D</span>
+      <span class="stat-value" id="maxPrice">R$ --</span>
+    </div>
+  </div>
+
+  <div class="chart-container">
+    <canvas id="graficoBTC"></canvas>
+  </div>
+
+  <div class="chart-footer">
+    <div class="time-filters">
+      <button class="time-btn active" data-days="7">7D</button>
+      <button class="time-btn" data-days="30">30D</button>
+      <button class="time-btn" data-days="90">90D</button>
+    </div>
+    <span class="chart-update">Atualizado: <span id="chartUpdateTime">--:--</span></span>
+  </div>
+</div>
 
     <!-- Índices de Mercado -->
     <div class="card beginner-mode" id="market-indices">
-      <h2><i class="fas fa-globe"></i> Índices de Mercado</h2>
+  <div class="indices-header">
+    <h2><i class="fas fa-globe"></i> Índices de Mercado</h2>
+    <div class="indices-controls">
+      <button id="refreshIndicesBtn" class="btn-refresh" title="Atualizar índices">
+        <i class="fas fa-sync-alt"></i>
+      </button>
+    </div>
+  </div>
 
-      <div class="market-indices-grid">
-        <!-- Dominância BTC -->
-        <div class="index-card">
-          <div class="index-header">
-            <h3><i class="fab fa-bitcoin"></i> Dominância BTC</h3>
-            <div class="current-value" id="btcDominanceValue">--%</div>
-          </div>
-
-          <div class="simplified-chart" id="btcDominanceChart">
-            <div class="chart-bar" id="btcDominanceBar"></div>
-          </div>
-
-          <div class="chart-error" id="btcChartError" style="display: none;">
-            <i class="fas fa-exclamation-triangle"></i> Erro ao carregar
-          </div>
+  <div class="market-indices-grid">
+    <!-- Dominância BTC -->
+    <div class index-card="index-card">
+      <div class="index-header">
+        <div class="index-title">
+          <i class="fab fa-bitcoin"></i>
+          <h3>Dominância Bitcoin</h3>
         </div>
+        <div class="current-value" id="btcDominanceValue">
+          <span class="value">--%</span>
+          <span class="trend" id="btcDominanceTrend"></span>
+        </div>
+      </div>
 
-        <!-- Altcoin Season -->
-        <div class="index-card">
-          <div class="index-header">
-            <h3><i class="fas fa-calendar-alt"></i> Altcoin Season</h3>
-            <div class="current-value" id="totalMarketCap">--.--B</div>
+      <div class="index-chart">
+        <div class="chart-progress">
+          <div class="progress-bar">
+            <div class="progress-fill" id="btcDominanceBar"></div>
           </div>
-
-          <div class="season-status">
-            <div class="status-indicator" id="seasonIndicator"></div>
-            <div class="status-text" id="seasonStatusText">Verificando...</div>
+          <div class="chart-markers">
+            <span>0%</span>
+            <span>50%</span>
+            <span>100%</span>
           </div>
         </div>
       </div>
 
-      <div class="update-footer">
-        <small>Última atualização: <span id="lastUpdateTime">--:--:--</span></small>
-        <button id="refreshIndicesBtn" class="refresh-btn">
-          <i class="fas fa-sync-alt"></i> Atualizar
-        </button>
+      <div class="index-analysis">
+        <div class="analysis-item">
+          <span class="label">Tendência:</span>
+          <span class="value" id="btcDominanceTrendText">--</span>
+        </div>
+        <div class="analysis-item">
+          <span class="label">Média 30D:</span>
+          <span class="value" id="btcDominanceAverage">--%</span>
+        </div>
       </div>
     </div>
+
+    <!-- Altcoin Season -->
+    <div class="index-card">
+      <div class="index-header">
+        <div class="index-title">
+          <i class="fas fa-calendar-alt"></i>
+          <h3>Altcoin Season</h3>
+        </div>
+        <div class="current-value" id="totalMarketCap">
+          <span class="value">$--.--B</span>
+        </div>
+      </div>
+
+      <div class="season-meter">
+        <div class="meter-scale">
+          <div class="meter-fill" id="seasonIndicator"></div>
+        </div>
+        <div class="meter-labels">
+          <span>Bitcoin Dominante</span>
+          <span>Altcoin Season</span>
+        </div>
+      </div>
+
+      <div class="season-status">
+        <div class="status-badge" id="seasonStatusBadge">
+          <i class="fas fa-question"></i>
+          <span id="seasonStatusText">Analisando...</span>
+        </div>
+        <div class="season-stats">
+          <div class="stat">
+            <span>BTC Dominance</span>
+            <strong id="btcDominancePercent">--%</strong>
+          </div>
+          <div class="stat">
+            <span>Altcoin Dominance</span>
+            <strong id="altcoinDominancePercent">--%</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fear & Greed Index -->
+    <div class="index-card">
+      <div class="index-header">
+        <div class="index-title">
+          <i class="fas fa-brain"></i>
+          <h3>Medo e Ganância</h3>
+        </div>
+        <div class="current-value" id="fearGreedValue">
+          <span class="value">--</span>
+        </div>
+      </div>
+
+      <div class="fear-greed-meter">
+        <div class="meter-scale-fg">
+          <div class="meter-fill-fg" id="fearGreedIndicator"></div>
+        </div>
+        <div class="fg-labels">
+          <span>Medo Extremo</span>
+          <span>Neutro</span>
+          <span>Ganância Extrema</span>
+        </div>
+      </div>
+
+      <div class="fear-greed-analysis">
+        <div class="fg-status" id="fearGreedStatus">Carregando...</div>
+        <div class="fg-description" id="fearGreedDescription">
+          Indicador de sentiment do mercado
+        </div>
+      </div>
+    </div>
+
+    <!-- Total Market Cap -->
+    <div class="index-card">
+      <div class="index-header">
+        <div class="index-title">
+          <i class="fas fa-chart-pie"></i>
+          <h3>Market Cap Total</h3>
+        </div>
+        <div class="current-value" id="globalMarketCap">
+          <span class="value">$--.--T</span>
+        </div>
+      </div>
+
+      <div class="market-cap-stats">
+        <div class="cap-stat">
+          <div class="stat-icon">₿</div>
+          <div class="stat-info">
+            <span>Bitcoin</span>
+            <strong id="btcMarketCap">$--.--B</strong>
+          </div>
+        </div>
+        <div class="cap-stat">
+          <div class="stat-icon">Ξ</div>
+          <div class="stat-info">
+            <span>Ethereum</span>
+            <strong id="ethMarketCap">$--.--B</strong>
+          </div>
+        </div>
+        <div class="cap-stat">
+          <div class="stat-icon">★</div>
+          <div class="stat-info">
+            <span>Altcoins</span>
+            <strong id="altcoinMarketCap">$--.--T</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="market-cap-change">
+        <span>Variação 24h:</span>
+        <strong id="marketCapChange">--%</strong>
+      </div>
+    </div>
+  </div>
+
+  <div class="indices-footer">
+    <div class="update-info">
+      <i class="fas fa-clock"></i>
+      <span>Atualizado: <span id="lastUpdateTime">--:--:--</span></span>
+    </div>
+    <div class="data-source">
+      <span>Fonte: CoinGecko API</span>
+    </div>
+  </div>
+</div>
+
+    <!-- Seção de Exchanges -->
+<div class="card beginner-mode" id="exchanges">
+  <h2><i class="fas fa-exchange-alt"></i> Principais Exchanges</h2>
+  
+  <div class="exchanges-grid">
+    <div class="exchange-card">
+      <div class="exchange-header">
+        <img src="assets/logo-binance.png" alt="Binance" width="40">
+        <h3>Binance</h3>
+        <span class="rating">4.8 ★</span>
+      </div>
+      <div class="exchange-details">
+        <p><i class="fas fa-percentage"></i> Taxa de Saque: 0.0005 BTC</p>
+        <p><i class="fas fa-coins"></i> +500 Criptomoedas</p>
+        <p><i class="fas fa-globe"></i> Global</p>
+      </div>
+      <a href="https://www.binance.com/activity/referral-entry/CPA?ref=CPA_0062C7L8QA" target="_blank" class="exchange-link">
+        Visitar Site <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+
+    <div class="exchange-card">
+      <div class="exchange-header">
+        <img src="assets/logo-bybit.png" alt="Bybit" width="40">
+        <h3>Bybit</h3>
+        <span class="rating">4.6 ★</span>
+      </div>
+      <div class="exchange-details">
+        <p><i class="fas fa-percentage"></i> Taxa de Saque: Variável</p>
+        <p><i class="fas fa-coins"></i> +300 Criptomoedas</p>
+        <p><i class="fas fa-globe"></i> Global</p>
+      </div>
+      <a href="https://www.bybit.com/invite?ref=XQPXAMR" target="_blank" class="exchange-link">
+        Visitar Site <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+
+    <div class="exchange-card">
+      <div class="exchange-header">
+        <img src="assets/logo-coinbase.png" alt="Mercado Bitcoin" width="40">
+        <h3>CoinBase</h3>
+        <span class="rating">4.5 ★</span>
+      </div>
+      <div class="exchange-details">
+        <p><i class="fas fa-percentage"></i> Taxa de Saque: Variável</p>
+        <p><i class="fas fa-coins"></i> +200 Criptomoedas</p>
+        <p><i class="fas fa-globe"></i> Global</p>
+      </div>
+      <a href="https://advanced.coinbase.com/join/4UFL4GW" target="_blank" class="exchange-link">
+        Visitar Site <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Comparador de Taxas -->
+<div class="card beginner-mode" id="comparador-taxas">
+  <h2><i class="fas fa-percentage"></i> Comparador de Taxas</h2>
+  
+  <div class="fee-comparison">
+    <table>
+      <thead>
+        <tr>
+          <th>Exchange</th>
+          <th>Taxa de Compra</th>
+          <th>Taxa de Saque</th>
+          <th>Taxa de Negociação</th>
+          <th>Rating</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Binance</td>
+          <td>0.1%</td>
+          <td>0.0005 BTC</td>
+          <td>0.1%</td>
+          <td>4.8 ★</td>
+        </tr>
+        <tr>
+          <td>Bybit</td>
+          <td>0.1%</td>
+          <td>Variável</td>
+          <td>0.1%</td>
+          <td>4.6 ★</td>
+        </tr>
+        <tr>
+          <td>Mercado Bitcoin</td>
+          <td>0.7%</td>
+          <td>0.3%</td>
+          <td>0.5%</td>
+          <td>4.5 ★</td>
+        </tr>
+        <tr>
+          <td>Foxbit</td>
+          <td>0.5%</td>
+          <td>0.0003 BTC</td>
+          <td>0.25%</td>
+          <td>4.3 ★</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <div class="fee-calculator">
+    <h3>Calculadora de Taxas</h3>
+    <div class="calc-controls">
+      <div>
+        <label>Valor da Operação (R$):</label>
+        <input type="number" id="feeAmount" class="form-input" placeholder="Ex: 1000">
+      </div>
+      <div>
+        <label>Exchange:</label>
+        <select id="feeExchange" class="form-input">
+          <option value="binance">Binance</option>
+          <option value="bybit">Bybit</option>
+          <option value="mercado-bitcoin">Mercado Bitcoin</option>
+          <option value="foxbit">Foxbit</option>
+        </select>
+      </div>
+      <button onclick="calculateFees()" class="btn">
+        <i class="fas fa-calculator"></i> Calcular Taxas
+      </button>
+    </div>
+    <div id="feeResult" style="display:none; margin-top:15px; padding:15px; background:rgba(0,255,136,0.1); border-radius:8px;">
+      <h4>Resultado:</h4>
+      <p id="feeTotal"></p>
+    </div>
+  </div>
+</div>
 
     <div class="card beginner-mode" style="margin-top: 20px; border: 1px solid rgba(240, 185, 11, 0.3);">
       <h2 style="margin-bottom: 15px;"><i class="fas fa-exchange-alt"></i> Comprar/Vender na Binance</h2>
@@ -233,22 +496,53 @@
 
     <!-- Portfólio Simulador -->
     <div class="card advanced-mode" id="portfolio">
-      <h2><i class="fas fa-chart-pie"></i> Meu Portfólio</h2>
-      <div class="portfolio-controls">
-        <button id="addAsset" class="btn"><i class="fas fa-plus"></i> Adicionar Ativo</button>
-        <button id="refreshPortfolio" class="btn" style="margin-left: 10px;"><i class="fas fa-sync-alt"></i>
-          Atualizar</button>
+  <div class="portfolio-header">
+    <h2><i class="fas fa-chart-pie"></i> Meu Portfólio</h2>
+    <div class="portfolio-stats" id="portfolioStats">
+      <div class="stat-card">
+        <span class="stat-label">Valor Total</span>
+        <span class="stat-value" id="portfolioTotal">R$ 0,00</span>
       </div>
-      <div class="portfolio-chart">
+      <div class="stat-card">
+        <span class="stat-label">Lucro/Prejuízo</span>
+        <span class="stat-value" id="portfolioProfit">R$ 0,00</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Variação</span>
+        <span class="stat-value" id="portfolioChange">0.00%</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="portfolio-controls">
+    <button id="addAsset" class="btn btn-primary">
+      <i class="fas fa-plus"></i> Adicionar Ativo
+    </button>
+    <button id="refreshPortfolio" class="btn btn-secondary">
+      <i class="fas fa-sync-alt"></i> Atualizar
+    </button>
+    <button id="exportPortfolio" class="btn btn-outline">
+      <i class="fas fa-download"></i> Exportar
+    </button>
+  </div>
+
+  <div class="portfolio-content">
+    <div class="portfolio-chart-section">
+      <div class="chart-container">
         <canvas id="portfolioChart"></canvas>
       </div>
-      <div class="portfolio-table">
-        <table>
+      <div class="chart-legend" id="chartLegend"></div>
+    </div>
+
+    <div class="portfolio-table-section">
+      <div class="table-responsive">
+        <table class="portfolio-table">
           <thead>
             <tr>
               <th>Ativo</th>
               <th>Quantidade</th>
               <th>Preço Médio</th>
+              <th>Valor Investido</th>
               <th>Valor Atual</th>
               <th>Variação</th>
               <th>Ações</th>
@@ -260,6 +554,17 @@
         </table>
       </div>
     </div>
+  </div>
+
+  <div class="portfolio-empty" id="portfolioEmpty">
+    <i class="fas fa-coins" style="font-size: 3rem; color: var(--text-muted); margin-bottom: 20px;"></i>
+    <h3>Portfólio Vazio</h3>
+    <p>Adicione seu primeiro ativo para começar a acompanhar seus investimentos</p>
+    <button id="addFirstAsset" class="btn btn-primary">
+      <i class="fas fa-plus"></i> Adicionar Primeiro Ativo
+    </button>
+  </div>
+</div>
 
     <!-- Fear & Greed Index -->
     <div class="card beginner-mode" id="fear-greed-section">
@@ -278,75 +583,572 @@
 
     <!-- Alertas de Preço -->
     <div class="card advanced-mode" id="alertas-preco">
-      <h2><i class="fas fa-bell"></i> Alertas de Preço</h2>
-      <div id="alertsContainer">
-        <!-- Alertas serão adicionados aqui -->
-      </div>
-      <button id="addAlertBtn" class="btn" style="margin-top:10px;">
-        <i class="fas fa-plus"></i> Criar Alerta
-      </button>
+  <div class="alerts-header">
+    <h2><i class="fas fa-bell"></i> Alertas de Preço</h2>
+    <div class="alerts-badge" id="alertsCount">0</div>
+  </div>
+
+  <div class="alerts-controls">
+    <button id="testNotificationBtn" class="btn btn-outline" title="Testar notificação">
+      <i class="fas fa-bell"></i> Testar Notificação
+    </button>
+    <button id="enableNotificationsBtn" class="btn btn-primary" style="display: none;">
+      <i class="fas fa-check-circle"></i> Ativar Notificações
+    </button>
+  </div>
+
+  <div class="alerts-filters">
+    <input type="text" id="alertsSearch" placeholder="Buscar alertas..." class="form-input">
+    <select id="alertsFilter" class="form-input">
+      <option value="all">Todos os alertas</option>
+      <option value="active">Ativos</option>
+      <option value="triggered">Disparados</option>
+    </select>
+  </div>
+
+  <div id="alertsContainer" class="alerts-container">
+    <div class="alerts-empty" id="alertsEmpty">
+      <i class="fas fa-bell-slash" style="font-size: 3rem; color: var(--text-muted); margin-bottom: 15px;"></i>
+      <h3>Nenhum alerta criado</h3>
+      <p>Crie seu primeiro alerta para ser notificado sobre movimentos de preço</p>
     </div>
+  </div>
+
+  <div class="alerts-footer">
+    <button id="addAlertBtn" class="btn btn-primary">
+      <i class="fas fa-plus"></i> Criar Alerta
+    </button>
+    <span class="alerts-info" id="alertsLastCheck"></span>
+  </div>
+</div>
 
     <!-- Calculadora de Trade -->
     <div class="card advanced-mode" id="profit-calculator">
-      <h2><i class="fas fa-calculator"></i> Calculadora de Trade</h2>
-      <div>
-        <label>Moeda:</label>
-        <select id="calcCoin" class="form-input">
-          <option value="bitcoin">Bitcoin (BTC)</option>
-          <option value="ethereum">Ethereum (ETH)</option>
-          <option value="tether">Tether (USDT)</option>
-          <option value="bnb">BNB (BNB)</option>
-          <option value="solana">Solana (SOL)</option>
-          <option value="cardano">Cardano (ADA)</option>
-          <option value="xrp">XRP (XRP)</option>
-          <option value="dogecoin">Dogecoin (DOGE)</option>
-        </select>
-        <label>Quantidade:</label>
-        <input type="number" id="calcAmount" class="form-input" placeholder="Ex: 0.5">
-        <label>Preço de Compra (R$):</label>
-        <input type="number" id="calcBuyPrice" class="form-input" placeholder="Ex: 100000">
-        <label>Preço de Venda (R$):</label>
-        <input type="number" id="calcSellPrice" class="form-input" placeholder="Ex: 120000">
-        <button onclick="calculateProfit()" class="btn" style="margin-top:10px;">
-          <i class="fas fa-calculator"></i> Calcular
-        </button>
-      </div>
-      <div id="calcResult"
-        style="display:none; margin-top:15px; padding:10px; background:rgba(0,255,136,0.1); border-radius:8px;">
-        <h3>Resultado:</h3>
-        <p id="calcProfit"></p>
-        <p id="calcPercentage"></p>
+  <div class="calculator-header">
+    <h2><i class="fas fa-calculator"></i> Calculadora de Trade Avançada</h2>
+    <div class="calculator-actions">
+      <button id="calcSwitchMode" class="btn-icon" title="Alternar modo">
+        <i class="fas fa-exchange-alt"></i>
+      </button>
+      <button id="calcReset" class="btn-icon" title="Limpar campos">
+        <i class="fas fa-undo"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="calculator-tabs">
+    <button class="calc-tab active" data-tab="basic">Básico</button>
+    <button class="calc-tab" data-tab="advanced">Avançado</button>
+    <button class="calc-tab" data-tab="fees">Com Taxas</button>
+  </div>
+
+  <div class="calculator-content">
+    <!-- ABA BÁSICA -->
+    <div class="calc-tab-content active" id="tab-basic">
+      <div class="calc-grid">
+        <div class="calc-group">
+          <label class="calc-label">
+            <i class="fas fa-coins"></i>
+            Criptomoeda
+          </label>
+          <select id="calcCoin" class="calc-select">
+            <option value="bitcoin">Bitcoin (BTC)</option>
+            <option value="ethereum">Ethereum (ETH)</option>
+            <option value="binancecoin">BNB (BNB)</option>
+            <option value="solana">Solana (SOL)</option>
+            <option value="cardano">Cardano (ADA)</option>
+            <option value="ripple">XRP (XRP)</option>
+            <option value="dogecoin">Dogecoin (DOGE)</option>
+            <option value="polkadot">Polkadot (DOT)</option>
+            <option value="litecoin">Litecoin (LTC)</option>
+            <option value="chainlink">Chainlink (LINK)</option>
+          </select>
+        </div>
+
+        <div class="calc-group">
+          <label class="calc-label">
+            <i class="fas fa-hashtag"></i>
+            Quantidade
+          </label>
+          <input type="number" id="calcAmount" class="calc-input" placeholder="0.00" step="any" min="0">
+          <span class="calc-hint" id="amountValue">0.00</span>
+        </div>
+
+        <div class="calc-group">
+          <label class="calc-label">
+            <i class="fas fa-arrow-down"></i>
+            Preço de Compra (R$)
+          </label>
+          <input type="number" id="calcBuyPrice" class="calc-input" placeholder="0.00" step="any" min="0">
+          <span class="calc-hint" id="buyPriceValue">R$ 0,00</span>
+        </div>
+
+        <div class="calc-group">
+          <label class="calc-label">
+            <i class="fas fa-arrow-up"></i>
+            Preço de Venda (R$)
+          </label>
+          <input type="number" id="calcSellPrice" class="calc-input" placeholder="0.00" step="any" min="0">
+          <span class="calc-hint" id="sellPriceValue">R$ 0,00</span>
+        </div>
       </div>
     </div>
 
-    <!-- Risk Calculator -->
-    <div class="card advanced-mode" id="risk-calculator">
-      <h2><i class="fas fa-calculator"></i> Calculadora de Risco</h2>
-      <div style="margin: 15px 0;">
-        <label>Valor do Investimento (R$)</label>
-        <input type="number" id="investment" placeholder="Ex: 1000" class="form-input">
-        <label>Moeda:</label>
-        <select id="coin" class="form-input">
-          <option value="bitcoin">Bitcoin (BTC)</option>
-          <option value="ethereum">Ethereum (ETH)</option>
-          <option value="solana">Solana (SOL)</option>
-          <option value="cardano">Cardano (ADA)</option>
-        </select>
-        <button onclick="calculateRisk()" class="btn" style="margin-top: 10px;">
-          <i class="fas fa-calculator"></i> Calcular Risco
-        </button>
-      </div>
-      <div id="risk-result">
-        <h3>Recomendação:</h3>
-        <p id="risk-value"></p>
-        <p id="risk-explanation"></p>
-        <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 10px;">
-          Proteja seus investimentos com stop-loss na <a href="https://www.bybit.com/invite?ref=XQPXAMR" target="_blank"
-            style="color: var(--primary);">Bybit</a>.
-        </p>
+    <!-- ABA AVANÇADA -->
+    <div class="calc-tab-content" id="tab-advanced">
+      <div class="calc-grid">
+        <div class="calc-group">
+          <label class="calc-label">
+            <i class="fas fa-percentage"></i>
+            Alvo de Lucro (%)
+          </label>
+          <input type="number" id="calcTargetProfit" class="calc-input" placeholder="0.00" step="0.01" min="0">
+          <button class="calc-btn-small" onclick="calculateTargetPrice()">
+            <i class="fas fa-calculator"></i> Calcular
+          </button>
+        </div>
+
+        <div class="calc-group">
+          <label class="calc-label">
+            <i class="fas fa-balance-scale"></i>
+            Preço Alvo (R$)
+          </label>
+          <input type="number" id="calcTargetPrice" class="calc-input" placeholder="0.00" step="any" min="0" readonly>
+          <span class="calc-hint" id="targetPriceInfo"></span>
+        </div>
+
+        <div class="calc-group">
+          <label class="calc-label">
+            <i class="fas fa-exclamation-triangle"></i>
+            Stop Loss (R$)
+          </label>
+          <input type="number" id="calcStopLoss" class="calc-input" placeholder="0.00" step="any" min="0">
+          <span class="calc-hint" id="stopLossInfo"></span>
+        </div>
+
+        <div class="calc-group">
+          <label class="calc-label">
+            <i class="fas fa-robot"></i>
+            Risco/Retorno
+          </label>
+          <div class="calc-risk-reward">
+            <span id="riskRewardRatio">1:0</span>
+            <div class="risk-meter">
+              <div class="risk-fill" id="riskMeter"></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+
+    <!-- ABA TAXAS -->
+    <div class="calc-tab-content" id="tab-fees">
+      <div class="calc-grid">
+        <div class="calc-group">
+          <label class="calc-label">
+            <i class="fas fa-exchange-alt"></i>
+            Exchange
+          </label>
+          <select id="calcExchange" class="calc-select">
+            <option value="binance">Binance (0.1%)</option>
+            <option value="bybit">Bybit (0.1%)</option>
+            <option value="mercado-bitcoin">Mercado Bitcoin (0.7%)</option>
+            <option value="foxbit">Foxbit (0.5%)</option>
+            <option value="custom">Personalizada</option>
+          </select>
+        </div>
+
+        <div class="calc-group">
+          <label class="calc-label">
+            <i class="fas fa-percentage"></i>
+            Taxa de Compra (%)
+          </label>
+          <input type="number" id="calcBuyFee" class="calc-input" value="0.1" step="0.01" min="0" max="10">
+        </div>
+
+        <div class="calc-group">
+          <label class="calc-label">
+            <i class="fas fa-percentage"></i>
+            Taxa de Venda (%)
+          </label>
+          <input type="number" id="calcSellFee" class="calc-input" value="0.1" step="0.01" min="0" max="10">
+        </div>
+
+        <div class="calc-group">
+          <label class="calc-label">
+            <i class="fas fa-wallet"></i>
+            Taxa de Saque
+          </label>
+          <input type="number" id="calcWithdrawalFee" class="calc-input" value="0" step="any" min="0">
+          <span class="calc-hint">R$ fixo ou %</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="calculator-actions-main">
+    <button id="calcCalculate" class="btn btn-primary calc-btn-main">
+      <i class="fas fa-calculator"></i> Calcular Trade
+    </button>
+    <button id="calcSave" class="btn btn-outline">
+      <i class="fas fa-save"></i> Salvar
+    </button>
+  </div>
+
+  <div class="calculator-results" id="calcResult">
+    <div class="results-header">
+      <h3><i class="fas fa-chart-line"></i> Resultado do Trade</h3>
+      <span class="results-badge" id="resultBadge">NEUTRO</span>
+    </div>
+
+    <div class="results-grid">
+      <div class="result-card">
+        <div class="result-icon" style="background: rgba(0, 255, 136, 0.1);">
+          <i class="fas fa-money-bill-wave" style="color: #00ff88;"></i>
+        </div>
+        <div class="result-info">
+          <span class="result-label">Investimento Total</span>
+          <span class="result-value" id="resultInvestment">R$ 0,00</span>
+        </div>
+      </div>
+
+      <div class="result-card">
+        <div class="result-icon" style="background: rgba(255, 193, 7, 0.1);">
+          <i class="fas fa-hand-holding-usd" style="color: #ffc107;"></i>
+        </div>
+        <div class="result-info">
+          <span class="result-label">Valor Final</span>
+          <span class="result-value" id="resultFinalValue">R$ 0,00</span>
+        </div>
+      </div>
+
+      <div class="result-card">
+        <div class="result-icon" style="background: rgba(0, 255, 136, 0.1);">
+          <i class="fas fa-chart-line" style="color: #00ff88;"></i>
+        </div>
+        <div class="result-info">
+          <span class="result-label">Lucro/Prejuízo</span>
+          <span class="result-value" id="resultProfit">R$ 0,00</span>
+        </div>
+      </div>
+
+      <div class="result-card">
+        <div class="result-icon" style="background: rgba(41, 128, 185, 0.1);">
+          <i class="fas fa-percentage" style="color: #2980b9;"></i>
+        </div>
+        <div class="result-info">
+          <span class="result-label">Variação</span>
+          <span class="result-value" id="resultPercentage">0.00%</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="results-details">
+      <div class="detail-row">
+        <span>Taxas Totais:</span>
+        <span id="resultFees">R$ 0,00</span>
+      </div>
+      <div class="detail-row">
+        <span>Risco/Retorno:</span>
+        <span id="resultRiskReward">1:0</span>
+      </div>
+      <div class="detail-row">
+        <span>Preço de Break-even:</span>
+        <span id="resultBreakEven">R$ 0,00</span>
+      </div>
+      <div class="detail-row">
+        <span>Resultado Líquido:</span>
+        <span id="resultNet">R$ 0,00</span>
+      </div>
+    </div>
+
+    <div class="results-analysis">
+      <h4>📊 Análise do Trade</h4>
+      <p id="resultAnalysis">Preencha os campos para analisar seu trade...</p>
+    </div>
+  </div>
+</div>
+
+    <!-- Risk Calculator -->
+    <div class="card advanced-mode" id="risk-calculator">
+  <div class="risk-header">
+    <h2><i class="fas fa-shield-alt"></i> Gerenciador de Risco</h2>
+    <div class="risk-badge" id="riskLevel">MODERADO</div>
+  </div>
+
+  <div class="risk-controls">
+    <div class="risk-tabs">
+      <button class="risk-tab active" data-tab="basic">Básico</button>
+      <button class="risk-tab" data-tab="advanced">Avançado</button>
+      <button class="risk-tab" data-tab="portfolio">Portfólio</button>
+    </div>
+  </div>
+
+  <div class="risk-content">
+    <!-- ABA BÁSICA -->
+    <div class="risk-tab-content active" id="tab-basic">
+      <div class="risk-grid">
+        <div class="risk-group">
+          <label class="risk-label">
+            <i class="fas fa-wallet"></i>
+            Capital Total (R$)
+          </label>
+          <input type="number" id="totalCapital" class="risk-input" placeholder="10.000,00" step="any" min="0">
+          <div class="risk-hint">Seu capital total para investir</div>
+        </div>
+
+        <div class="risk-group">
+          <label class="risk-label">
+            <i class="fas fa-coins"></i>
+            Criptomoeda
+          </label>
+          <select id="riskCoin" class="risk-select">
+            <option value="bitcoin">Bitcoin (BTC)</option>
+            <option value="ethereum">Ethereum (ETH)</option>
+            <option value="solana">Solana (SOL)</option>
+            <option value="cardano">Cardano (ADA)</option>
+            <option value="binancecoin">BNB (BNB)</option>
+            <option value="ripple">XRP (XRP)</option>
+            <option value="dogecoin">Dogecoin (DOGE)</option>
+            <option value="polkadot">Polkadot (DOT)</option>
+          </select>
+        </div>
+
+        <div class="risk-group">
+          <label class="risk-label">
+            <i class="fas fa-percentage"></i>
+            Risco por Trade (%)
+          </label>
+          <input type="range" id="riskPerTrade" class="risk-slider" min="0.5" max="5" step="0.5" value="2">
+          <div class="slider-values">
+            <span>0.5%</span>
+            <span id="riskValue">2%</span>
+            <span>5%</span>
+          </div>
+        </div>
+
+        <div class="risk-group">
+          <label class="risk-label">
+            <i class="fas fa-user"></i>
+            Perfil de Risco
+          </label>
+          <select id="riskProfile" class="risk-select">
+            <option value="conservador">Conservador (1%)</option>
+            <option value="moderado" selected>Moderado (2%)</option>
+            <option value="arrojado">Arrojado (3%)</option>
+            <option value="agressivo">Agressivo (4-5%)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- ABA AVANÇADA -->
+    <div class="risk-tab-content" id="tab-advanced">
+      <div class="risk-grid">
+        <div class="risk-group">
+          <label class="risk-label">
+            <i class="fas fa-chart-line"></i>
+            Volatilidade Esperada (%)
+          </label>
+          <input type="number" id="expectedVolatility" class="risk-input" value="3.0" step="0.1" min="0.1" max="20">
+          <div class="risk-hint">Baseado em dados históricos</div>
+        </div>
+
+        <div class="risk-group">
+          <label class="risk-label">
+            <i class="fas fa-target"></i>
+            Stop Loss (%)
+          </label>
+          <input type="number" id="stopLossPercent" class="risk-input" value="15" step="1" min="1" max="50">
+          <div class="risk-hint">Distância do stop loss</div>
+        </div>
+
+        <div class="risk-group">
+          <label class="risk-label">
+            <i class="fas fa-expand-arrows-alt"></i>
+            Alavancagem
+          </label>
+          <select id="leverage" class="risk-select">
+            <option value="1">1x (Spot)</option>
+            <option value="3">3x</option>
+            <option value="5">5x</option>
+            <option value="10">10x</option>
+            <option value="20">20x</option>
+            <option value="50">50x</option>
+            <option value="100">100x</option>
+          </select>
+        </div>
+
+        <div class="risk-group">
+          <label class="risk-label">
+            <i class="fas fa-balance-scale"></i>
+            Risco/Retorno
+          </label>
+          <select id="riskReward" class="risk-select">
+            <option value="1">1:1</option>
+            <option value="1.5">1:1.5</option>
+            <option value="2">1:2</option>
+            <option value="3" selected>1:3</option>
+            <option value="4">1:4</option>
+            <option value="5">1:5</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- ABA PORTFÓLIO -->
+    <div class="risk-tab-content" id="tab-portfolio">
+      <div class="risk-grid">
+        <div class="risk-group">
+          <label class="risk-label">
+            <i class="fas fa-chart-pie"></i>
+            Alocação por Moeda (%)
+          </label>
+          <input type="number" id="allocationPercent" class="risk-input" value="20" step="1" min="1" max="100">
+          <div class="risk-hint">Máximo por criptomoeda</div>
+        </div>
+
+        <div class="risk-group">
+          <label class="risk-label">
+            <i class="fas fa-layer-group"></i>
+            Diversificação
+          </label>
+          <select id="diversification" class="risk-select">
+            <option value="low">Baixa (1-3 moedas)</option>
+            <option value="medium" selected>Média (4-7 moedas)</option>
+            <option value="high">Alta (8+ moedas)</option>
+          </select>
+        </div>
+
+        <div class="risk-group">
+          <label class="risk-label">
+            <i class="fas fa-clock"></i>
+            Horizonte Temporal
+          </label>
+          <select id="timeHorizon" class="risk-select">
+            <option value="short">Curto prazo (< 1 mês)</option>
+            <option value="medium">Médio prazo (1-6 meses)</option>
+            <option value="long" selected>Longo prazo (> 6 meses)</option>
+          </select>
+        </div>
+
+        <div class="risk-group">
+          <label class="risk-label">
+            <i class="fas fa-bolt"></i>
+            Estratégia
+          </label>
+          <select id="strategy" class="risk-select">
+            <option value="hodl">HODL</option>
+            <option value="swing">Swing Trade</option>
+            <option value="day">Day Trade</option>
+            <option value="scalping">Scalping</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="risk-actions">
+    <button id="calculateRisk" class="btn btn-primary risk-btn-main">
+      <i class="fas fa-calculator"></i> Calcular Risco
+    </button>
+    <button id="resetRisk" class="btn btn-outline">
+      <i class="fas fa-undo"></i> Limpar
+    </button>
+  </div>
+
+  <div class="risk-results" id="riskResult">
+    <div class="results-header">
+      <h3><i class="fas fa-analytics"></i> Análise de Risco</h3>
+      <div class="risk-score" id="riskScore">65/100</div>
+    </div>
+
+    <div class="risk-metrics">
+      <div class="metric-card">
+        <div class="metric-icon" style="background: rgba(0, 255, 136, 0.1);">
+          <i class="fas fa-money-bill-wave" style="color: #00ff88;"></i>
+        </div>
+        <div class="metric-info">
+          <span class="metric-label">Valor por Trade</span>
+          <span class="metric-value" id="riskValuePerTrade">R$ 0,00</span>
+        </div>
+      </div>
+
+      <div class="metric-card">
+        <div class="metric-icon" style="background: rgba(255, 193, 7, 0.1);">
+          <i class="fas fa-exclamation-triangle" style="color: #ffc107;"></i>
+        </div>
+        <div class="metric-info">
+          <span class="metric-label">Risco Máximo</span>
+          <span class="metric-value" id="riskMaxLoss">R$ 0,00</span>
+        </div>
+      </div>
+
+      <div class="metric-card">
+        <div class="metric-icon" style="background: rgba(41, 128, 185, 0.1);">
+          <i class="fas fa-chart-line" style="color: #2980b9;"></i>
+        </div>
+        <div class="metric-info">
+          <span class="metric-label">Posição Size</span>
+          <span class="metric-value" id="riskPositionSize">0.0000</span>
+        </div>
+      </div>
+
+      <div class="metric-card">
+        <div class="metric-icon" style="background: rgba(156, 39, 176, 0.1);">
+          <i class="fas fa-target" style="color: #9c27b0;"></i>
+        </div>
+        <div class="metric-info">
+          <span class="metric-label">Stop Loss</span>
+          <span class="metric-value" id="riskStopPrice">R$ 0,00</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="risk-analysis">
+      <h4>📊 Recomendações</h4>
+      <div class="recommendation-list" id="riskRecommendations">
+        <div class="recommendation-item">
+          <i class="fas fa-check-circle" style="color: #00ff88;"></i>
+          <span>Carregando análise...</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="risk-breakdown">
+      <h4>🔍 Detalhamento</h4>
+      <div class="breakdown-grid">
+        <div class="breakdown-item">
+          <span>Volatilidade do Ativo:</span>
+          <span id="breakdownVolatility">--%</span>
+        </div>
+        <div class="breakdown-item">
+          <span>Risco por Trade:</span>
+          <span id="breakdownRiskPerTrade">--%</span>
+        </div>
+        <div class="breakdown-item">
+          <span>Alavancagem:</span>
+          <span id="breakdownLeverage">--x</span>
+        </div>
+        <div class="breakdown-item">
+          <span>Risco/Retorno:</span>
+          <span id="breakdownRiskReward">1:--</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="risk-protection">
+      <h4>🛡️ Proteção</h4>
+      <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 10px;">
+        Proteja seus investimentos com stop-loss na 
+        <a href="https://www.bybit.com/invite?ref=XQPXAMR" target="_blank" style="color: var(--primary); text-decoration: none;">
+          <strong>Bybit</strong>
+        </a> 
+        e outras ferramentas profissionais.
+      </p>
+    </div>
+  </div>
+</div>
 
     <!-- News Section -->
     <div class="card beginner-mode" id="news">
@@ -420,49 +1222,61 @@
         <div class="tutoriais-grid" id="tutoriaisContent"></div>
       </div>
     </div>
+  </main>
 
-    <!-- Feedback -->
-    <div class="card" id="feedback">
-      <h2><i class="fas fa-comment-dots"></i> Deixe seu Feedback</h2>
+ <footer>
+  <div class="footer-content">
+    <!-- Seção de Feedback -->
+    <div class="footer-section">
+      <h4><i class="fas fa-comment-dots"></i> Deixe seu Feedback</h4>
       <form action="https://formsubmit.co/trackcripto@gmail.com" method="POST">
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_next" value="https://trackcripto.netlify.app/">
-
-        <div style="margin-bottom: 15px;">
-          <label>O que você achou do site?</label>
-          <textarea name="feedback" class="form-input" rows="4" placeholder="Sua opinião aqui..." required></textarea>
-        </div>
-
-        <button type="submit" class="btn">
-          <i class="fas fa-paper-plane"></i> Enviar Feedback
+        <input type="hidden" name="_subject" value="Novo Feedback - TrackCripto">
+        
+        <input type="text" name="name" placeholder="Seu nome" class="form-input" required>
+        <input type="email" name="email" placeholder="Seu email" class="form-input" required>
+        <textarea name="feedback" placeholder="Sua mensagem..." class="form-input" rows="3" required></textarea>
+        
+        <button type="submit" class="btn" style="margin-top: 10px;">
+          <i class="fas fa-paper-plane"></i> Enviar Mensagem
         </button>
       </form>
     </div>
-  </main>
 
-  <footer>
-    <div class="footer-content">
-      <div class="footer-section">
-        <h4>TrackCripto</h4>
-        <p>Sua ferramenta completa para análise de criptomoedas</p>
-      </div>
-      <div class="footer-section">
-        <h4>Links</h4>
-        <ul>
-          <li><a href="#termos">Termos de Uso</a></li>
-          <li><a href="#privacidade">Política de Privacidade</a></li>
-          <li><a href="#feedback">Contato</a></li>
-        </ul>
-      </div>
-      <div class="footer-section">
-        <h4>Apoie o projeto</h4>
-        <p>Chave PIX: trackcripto@gmail.com</p>
-      </div>
+    <!-- Seção da Logo -->
+    <div class="footer-section">
+      <h4><span class="logo-track">Track</span><span class="logo-crypto">Cripto</span></h4>
+      <p>Sua ferramenta completa para análise de criptomoedas</p>
     </div>
-    <div class="footer-bottom">
-      <p>&copy; 2025 TrackCripto. Todos os direitos reservados.</p>
+
+    <!-- Seção de Links -->
+    <div class="footer-section">
+      <h4><i class="fas fa-link"></i> Links Rápidos</h4>
+      <ul>
+        <li><a href="#termos">Termos de Uso</a></li>
+        <li><a href="#privacidade">Política de Privacidade</a></li>
+        <li><a href="https://forms.gle/TXwWxECcrrwgKsnTA" target="_blank">Formulário de Contato</a></li>
+        <li><a href="#suporte">Suporte</a></li>
+      </ul>
     </div>
-  </footer>
+
+    <!-- Seção de Apoio -->
+    <div class="footer-section">
+      <h4><i class="fas fa-heart"></i> Apoie o Projeto</h4>
+      <p>Chave PIX:</p>
+      <p class="pix-code">trackcripto@gmail.com</p>
+      <button onclick="copyPix()" class="btn" style="margin-top: 10px;">
+        <i class="fas fa-copy"></i> Copiar PIX
+      </button>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 TrackCripto. Todos os direitos reservados.</p>
+    <p>Desenvolvido com <i class="fas fa-heart" style="color: #00ff88;"></i> para a comunidade cripto</p>
+  </div>
+</footer>
 
   <!-- Chat IA -->
   <div id="aiChatContainer">
@@ -581,8 +1395,9 @@
 
   <!-- Scripts externos -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  
+
   <!-- Scripts locais -->
   <script src="script.js"></script>
 </body>
+
 </html>
